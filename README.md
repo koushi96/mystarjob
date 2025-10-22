@@ -2,8 +2,6 @@
 
 A myStarJob fair web application built using Node.js, MySQL, and Apache to manage job listings, candidate tracking, and applications.
 
-## 🚀 Getting Started
-
 1. **Clone the Repository**
     git clone https://github.com/koushi96/mystarjob.git
 
