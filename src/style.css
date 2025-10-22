@@ -29,8 +29,8 @@ body {
   margin-left: 5rem;
   text-align: center;
   background-color: #ffffff;
-   overflow-x: hidden; /* prevent horizontal scroll only */
-  overflow-y: auto;   /* allow vertical scrolling */
+   overflow-x: hidden; 
+  overflow-y: auto;  
 }
 
 h1 {

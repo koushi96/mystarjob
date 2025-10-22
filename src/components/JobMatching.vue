@@ -1,37 +1,14 @@
 <script setup>
+import { ref, onMounted } from 'vue';
 import jobMatching_img from '../assets/jobMatching/jobMatching_img.png';
 import freeAdmissionGift from '../assets/jobMatching/freeAdmissionGift.jpg';
-import earlyBird_img from '../assets/jobMatching/earlyBird_img.png';
 import ComponentButton from './ComponentButton.vue';
 
-const jobMatchingDesc = "Each session will have 12 recruiters and up to 24 jobseekers. Each discussion will be 2 minutes. Jobseekers will move to the next recruiter when time is up. The recruiter remains at their place. A lucky draw for the jobseekers will be done at the end of the session.";
+const jobMatchingDesc =
+  "Each session will have 12 recruiters and up to 24 jobseekers. Each discussion will be 2 minutes. Jobseekers will move to the next recruiter when time is up. The recruiter remains at their place. A lucky draw for the jobseekers will be done at the end of the session.";
 
-const careerTalkSessionList = [
-  {
-    day: "1",
-    date: "24 May 2025, Saturday",
-    list: [
-      { company: "Perkeso", time: "10-11am" },
-      { company: "Allianz", time: "11-12pm" },
-      { company: "Aonic", time: "2-3pm" },
-      { company: "Aat", time: "3-4pm" },
-      { company: "Babas", time: "4-5pm" },
-      { company: "LYC Healthcare", time: "5-6pm" },
-    ],
-  },
-  {
-    day: "2",
-    date: "25 May 2025, Sunday",
-    list: [
-      { company: "Public Bank", time: "10-11am" },
-      { company: "Seatrium", time: "11-12pm" },
-      { company: "Setel", time: "2-3pm" },
-      { company: "MYFutureJobs", time: "3-4pm" },
-      { company: "GreatEastern", time: "4-5pm" },
-      { company: "Hong Leong Assurance", time: "5-6pm" },
-    ],
-  },
-];
+const JobMatchingSessionList = ref([]);
+const careerTalkSessionList = ref([]);
 
 function chunkArray(arr, chunkSize) {
   const result = [];
@@ -40,6 +17,100 @@ function chunkArray(arr, chunkSize) {
   }
   return result;
 }
+
+async function fetchSessions() {
+  try {
+    const res = await fetch("http://localhost/backend/api/getSessions.php");
+    const data = await res.json();
+    console.log("  API response:", data);
+
+    const jobMatching = data.filter(
+      (s) => s.session_type_id === "1" || s.session_type_id === 1
+    );
+    const careerTalk = data.filter(
+      (s) => s.session_type_id === "2" || s.session_type_id === 2
+    );
+
+    const groupByDate = (sessions) => {
+      const grouped = {};
+      sessions.forEach((s) => {
+        if (!grouped[s.session_date]) grouped[s.session_date] = [];
+        grouped[s.session_date].push({
+          company: s.company || "",
+          time: s.slot_time || "",
+        });
+      });
+
+      const mapped = Object.entries(grouped).map(([date, list], index) => ({
+        day: index + 1,
+        date,
+        list,
+      }));
+
+      // If API returned nothing, create placeholders
+      if (mapped.length === 0) {
+        return [
+          {
+            day: 1,
+            date: "No sessions yet",
+            list: [
+              { company: "", time: "" },
+              { company: "", time: "" },
+              { company: "", time: "" },
+            ],
+          },
+        ];
+      }
+
+      return mapped;
+    };
+
+    JobMatchingSessionList.value = groupByDate(jobMatching);
+    careerTalkSessionList.value = groupByDate(careerTalk);
+
+    const padEmpty = (list) => {
+      list.forEach((day) => {
+        const remainder = day.list.length % 3;
+        if (remainder > 0) {
+          const emptySlots = 3 - remainder;
+          for (let i = 0; i < emptySlots; i++) {
+            day.list.push({ company: "", time: "" });
+          }
+        }
+      });
+    };
+
+    padEmpty(JobMatchingSessionList.value);
+    padEmpty(careerTalkSessionList.value);
+  } catch (err) {
+    console.error("❌ Error fetching sessions:", err);
+    // show fallback placeholders even if fetch fails
+    JobMatchingSessionList.value = [
+      {
+        day: 1,
+        date: "No data (fetch failed)",
+        list: [
+          { company: "", time: "" },
+          { company: "", time: "" },
+          { company: "", time: "" },
+        ],
+      },
+    ];
+    careerTalkSessionList.value = [
+      {
+        day: 1,
+        date: "No data (fetch failed)",
+        list: [
+          { company: "", time: "" },
+          { company: "", time: "" },
+          { company: "", time: "" },
+        ],
+      },
+    ];
+  }
+}
+
+onMounted(fetchSessions);
 </script>
 
 <template>
@@ -53,36 +124,57 @@ function chunkArray(arr, chunkSize) {
         </div>
 
         <!-- Loop through each day/session -->
+        <div v-for="(session, index) in JobMatchingSessionList" :key="index" class="slotDiv">
+
+            <div class="eachDayDiv">
+                <p>Day {{ session.day }} - {{ session.date }}</p>
+
+                <!-- Chunk list into rows of 3 -->
+                <div 
+                v-for="(group, groupIndex) in chunkArray(session.list, 3)" 
+                :key="groupIndex" 
+                class="eachCompanyRow"
+                >
+                <div 
+                    v-for="(item, idx) in group" 
+                    :key="idx" 
+                    class="eachCompanyCard"
+                >
+                    {{ item.company }} <br /> {{ item.time }}
+                </div>
+                </div>
+            </div>
+        </div>
+            
+        <h1 class="dividerTitle">Career Talk Session</h1>
+
+        <!-- Loop through each day/session -->
         <div v-for="(session, index) in careerTalkSessionList" :key="index" class="slotDiv">
-        
-        <!-- Insert divider between Day 1 and Day 2 -->
-        <div v-if="index === 1" class="dayDivider">
-            <h1 class="dividerTitle">Career Talk Session</h1>
-        </div>
 
-        <div class="eachDayDiv">
-            <p>Day {{ session.day }} - {{ session.date }}</p>
+            <div class="eachDayDiv">
+                <p>Day {{ session.day }} - {{ session.date }}</p>
 
-            <!-- Chunk list into rows of 3 -->
-            <div 
-            v-for="(group, groupIndex) in chunkArray(session.list, 3)" 
-            :key="groupIndex" 
-            class="eachCompanyRow"
-            >
-            <div 
-                v-for="(item, idx) in group" 
-                :key="idx" 
-                class="eachCompanyCard"
-            >
-                {{ item.company }} <br /> {{ item.time }}
-            </div>
+                <!-- Chunk list into rows of 3 -->
+                <div 
+                v-for="(group, groupIndex) in chunkArray(session.list, 3)" 
+                :key="groupIndex" 
+                class="eachCompanyRow"
+                >
+                <div 
+                    v-for="(item, idx) in group" 
+                    :key="idx" 
+                    class="eachCompanyCard"
+                >
+                    {{ item.company }} <br /> {{ item.time }}
+                </div>
+                </div>
             </div>
         </div>
-        </div>
 
-        <div>
+        <div class='buttonComponent'>
             <ComponentButton 
                 :isExhibitor="true"
+                to="/reservation"
             >
                 BE OUR VISITOR
             </ComponentButton>
@@ -150,7 +242,6 @@ function chunkArray(arr, chunkSize) {
 }
 
 .slotDiv {
-    padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -158,7 +249,6 @@ function chunkArray(arr, chunkSize) {
 }
 
 .eachDayDiv {
-    padding: 1rem;
     border-radius: 8px;
     width: 100%;
     height: auto;
@@ -184,7 +274,7 @@ function chunkArray(arr, chunkSize) {
     background-color: #F4C2C2;
     width: 25%;
     min-width: 200px;
-    height: 5rem;
+    height: 4rem;
     border-radius: 24px;
     font-size: 1.2rem;
     display: flex;
@@ -213,6 +303,11 @@ function chunkArray(arr, chunkSize) {
     font-weight: bold;
     text-align: center;
     color: #fff;
+    padding: 5rem 0 2rem;
+}
+
+.buttonComponent {
+    padding-top: 5rem;
 }
 
 .freeAdmissionDiv {

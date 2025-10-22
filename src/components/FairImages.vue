@@ -78,7 +78,7 @@ function prevSlide() {
 }
 
 .slide {
-  flex: 0 0 calc(100% / 3); /* 3 visible slides */
+  flex: 0 0 calc(100% / 3); 
   padding: 8px;
 }
 
@@ -89,7 +89,6 @@ function prevSlide() {
   border-radius: 8px;
 }
 
-/* Side nav buttons */
 .nav-button {
   background-color: white;
   color: black;

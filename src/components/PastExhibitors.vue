@@ -35,7 +35,7 @@
     width: auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem 6rem; /* Y gap = 40px, X gap = 5% */
+    gap: 2rem 6rem; 
     justify-content: start;
     margin-bottom: 64px;
 }

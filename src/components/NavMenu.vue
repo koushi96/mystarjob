@@ -11,21 +11,24 @@
         <img :src="logo_JobFair" alt="Company_Logo" />
       </div>
       <div class="nav-links">
-        <ComponentButton :isExhibitor="false">
-        HOME
-        <span class="arrowDiv"> 
+        <ComponentButton :isExhibitor="false" to="/">
+          HOME
+          <span class="arrowDiv">
             <img :src="arrowNext" alt="arrow-next-small"/>
-        </span>
+          </span>
         </ComponentButton>
-        <ComponentButton :isExhibitor="false">
-        CONTACT US
-        <span class="arrowDiv"> 
+
+        <ComponentButton :isExhibitor="false" to="/#contact-us">
+          CONTACT US
+          <span class="arrowDiv">
             <img :src="arrowNext" alt="arrow-next-small"/>
-        </span>
+          </span>
         </ComponentButton>
-        <ComponentButton :isExhibitor="true">
-        BE OUR EXHIBITOR
+
+        <ComponentButton :isExhibitor="true" to="/exhibitorRegistration">
+          BE OUR EXHIBITOR
         </ComponentButton>
+
       </div>
     </div>
   </nav>
