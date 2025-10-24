@@ -1,5 +1,6 @@
 {
     "contactUs": {
+        "mainTitle" : "Contact Us",
         "nameLabel" : "Name *",
         "countryLabel" : "Country of origin *",
         "contactNumberLabel" : "Contact Number *",
@@ -15,7 +16,11 @@
     },
     "exhibitionHallLayout":{
         "magnifyingGlassUrl" : "../assets/hallLayout/magnifying-glass.svg",
-        "floorDirectoryUrl" : "../assets/floorDirectory/floor_directory.png"
+        "floorDirectoryUrl" : "../assets/floorDirectory/floor_directory.png",
+        "mainTitle" : "Exhibition Hall Layout",
+        "clickToView" : "Click to view",
+        "findPlotNumber" : "Find companies' plot number :",
+        "noMatchesFound" : "No matches found"
     },
     "exhibitionHallRegistration":{
         "mainTitle" : "Exhibitor Registration",
@@ -121,6 +126,6 @@
     "liveCountdown" : {
         "mainTitle" : "Next myStarJob Fair in...",
         "countdownComplete" : "See you next year!"
-    } 
+    }
 
 }

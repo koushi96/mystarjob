@@ -52,19 +52,19 @@ watch(searchText, (newVal) => {
 
 <template>
     <div class="titleDiv">
-        <h3 class='title'>Exhibition Hall Layout</h3>
+        <h3 class='title'>{{data.exhibitionHallLayout.mainTitle}}</h3>
         <div class="gallery">
             <img v-for="(img, index) in imageList" :key="index" :src="img" alt="Exhibition_Hall_Layout" />
         </div>
         <div class="hoverToView"> 
             <img :src="resolveAsset(data.exhibitionHallLayout.magnifyingGlassUrl)" alt='magnifying-glass'/>
-            <p>Click to view</p>
+            <p>{{data.exhibitionHallLayout.clickToView}}</p>
         </div>
         <div class='directory'>
             <img :src="resolveAsset(data.exhibitionHallLayout.floorDirectoryUrl)" alt='floor_directory'/>
             <div class='searhDropdown'>
                 <div class='directoryDropdown'>
-                    <label for="search">Find companies' plot number :</label>
+                    <label for="search">{{data.exhibitionHallLayout.findPlotNumber}}</label>
                     <div class="custom-select">
                         <div class="dropdown-wrapper">
                             <input
@@ -83,7 +83,7 @@ watch(searchText, (newVal) => {
                             >
                                 {{ option.company }} — Plot {{ option.boothNum }}
                             </li>
-                            <li v-if="filteredOptions.length === 0" class="no-match">No matches found</li>
+                            <li v-if="filteredOptions.length === 0" class="no-match">{{data.exhibitionHallLayout.noMatchesFound}}</li>
                             </ul>
                         </div>
                     </div>

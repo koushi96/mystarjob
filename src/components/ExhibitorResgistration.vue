@@ -215,7 +215,7 @@
 </div>
 
 <div class="formGroup">
-  <label for="date">Exhibition Date *</label>
+  <label for="date">{{data.exhibitionHallRegistration.dateLabel}}</label>
   <select 
     id="date" 
     v-model="form.date"

@@ -75,7 +75,7 @@
   <section id="contact-us">
     <div class="mainLayout">
       <div class="titleDiv">
-        <h3 class='title'>Contact Us</h3>
+        <h3 class='title'>{{data.contactUs.mainTitle}}</h3>
       </div>
     </div>
   
