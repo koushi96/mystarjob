@@ -12,6 +12,7 @@ import EarlyBird from '../components/EarlyBird.vue';
 import Roadmap from '../components/Roadmap.vue';
 import ContactUs from '../components/ContactUs.vue';
 import LiveCountdown from '../components/LiveCountdown.vue';
+import Chatbot from '../components/Chatbot.vue';
 </script>
 
 
@@ -29,5 +30,6 @@ import LiveCountdown from '../components/LiveCountdown.vue';
     <Roadmap />
     <LiveCountdown />
     <ContactUs />
+    <Chatbot/>
   </div>
 </template>
