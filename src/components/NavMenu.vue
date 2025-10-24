@@ -1,32 +1,32 @@
 <script setup>
-    import ComponentButton from './ComponentButton.vue';
-    import logo_JobFair from '../assets/introductionSection/logo_JobFair.jpg'; 
-    import arrowNext from '../assets/introductionSection/arrow-next-small.svg';
+  import ComponentButton from './ComponentButton.vue';
+  import { resolveAsset } from '../common/commonFunctions.ts'
+  import data from '../common/data.json';
 </script>
 
 <template>
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
-        <img :src="logo_JobFair" alt="Company_Logo" />
+        <img :src="resolveAsset(data.navMenue.logoJobFairUrl)" alt="Company_Logo" />
       </div>
       <div class="nav-links">
-        <ComponentButton :isExhibitor="false" to="/">
-          HOME
+        <ComponentButton :isExhibitor="false" :to="data.navMenue.homeButtonUrl">
+          {{data.navMenue.homeButton}}
           <span class="arrowDiv">
-            <img :src="arrowNext" alt="arrow-next-small"/>
+            <img :src="resolveAsset(data.navMenue.arrowNextSvg)" alt="arrow-next-small"/>
           </span>
         </ComponentButton>
 
-        <ComponentButton :isExhibitor="false" to="/#contact-us">
-          CONTACT US
+        <ComponentButton :isExhibitor="false" :to="data.navMenue.contactUsUrl">
+          {{data.navMenue.contactUsButton}}
           <span class="arrowDiv">
-            <img :src="arrowNext" alt="arrow-next-small"/>
+            <img :src="resolveAsset(data.navMenue.arrowNextSvg)" alt="arrow-next-small"/>
           </span>
         </ComponentButton>
 
-        <ComponentButton :isExhibitor="true" to="/exhibitorRegistration">
-          BE OUR EXHIBITOR
+        <ComponentButton :isExhibitor="true" :to="data.navMenue.beOurExhibitorUrl">
+          {{data.navMenue.beOurExhibitorButton}}
         </ComponentButton>
 
       </div>
@@ -37,43 +37,42 @@
 
 
 <style scoped>
-.navbar {
+  .navbar {
     width: auto;
     background-color: white;
     padding: 16px 24px;
-}
+  }
 
-.nav-container {
+  .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+  }
 
-.nav-links {
+  .nav-links {
     display: flex;
     gap: 16px;
-}
+  }
 
-.arrowDiv {
+  .arrowDiv {
     display: flex;
     align-items: center;
-}
+  }
 
-.arrowDiv img{
+  .arrowDiv img{
     height: 1rem;      
     width: auto;      
     object-fit: contain;
-}
+  }
 
-.logo {
+  .logo {
     display: flex;
     align-items: center;
-}
+  }
 
-.logo img {
+  .logo img {
     height: 4rem;      
     width: auto;      
     object-fit: contain;
-}
-
+  }
 </style>

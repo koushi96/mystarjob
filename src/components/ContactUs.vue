@@ -1,124 +1,125 @@
 <script setup>
-import { reactive, ref } from 'vue';
-import ComponentButton from './ComponentButton.vue';
+  import { reactive, ref } from 'vue';
+  import ComponentButton from './ComponentButton.vue';
+  import data from '../common/data.json';
 
-const form = reactive({
-  name: '',
-  country: '',
-  contact: '',
-  email: '',
-  company: '',
-  jobTitle: '',
-  inquiries: '',
-});
+  const form = reactive({
+    name: '',
+    country: '',
+    contact: '',
+    email: '',
+    company: '',
+    jobTitle: '',
+    inquiries: '',
+  });
 
-const errors = reactive({});
+  const errors = reactive({});
 
-const validateEmail = (email) => {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-};
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
 
-async function handleSubmit() {
-  Object.keys(errors).forEach((key) => (errors[key] = ''));
+  async function handleSubmit() {
+    Object.keys(errors).forEach((key) => (errors[key] = ''));
 
-  // Validation (same as before)
-  if (!form.name) errors.name = 'Name is required.';
-  if (!form.country) errors.country = 'Country is required.';
-  if (!form.contact) errors.contact = 'Contact number is required.';
-  if (!form.email) {
-    errors.email = 'Email is required.';
-  } else if (!validateEmail(form.email)) {
-    errors.email = 'Invalid email format.';
-  }
-  if (!form.company) errors.company = 'Company is required.';
-  if (!form.jobTitle) errors.jobTitle = 'Job title is required.';
-  if (!form.inquiries) errors.inquiries = 'Inquiries are required.';
+    // Validation (same as before)
+    if (!form.name) errors.name = 'Name is required.';
+    if (!form.country) errors.country = 'Country is required.';
+    if (!form.contact) errors.contact = 'Contact number is required.';
+    if (!form.email) {
+      errors.email = 'Email is required.';
+    } else if (!validateEmail(form.email)) {
+      errors.email = 'Invalid email format.';
+    }
+    if (!form.company) errors.company = 'Company is required.';
+    if (!form.jobTitle) errors.jobTitle = 'Job title is required.';
+    if (!form.inquiries) errors.inquiries = 'Inquiries are required.';
 
-  // If no errors, POST to PHP API
-  if (Object.values(errors).every((e) => !e)) {
-    try {
-      const response = await fetch('http://localhost/backend/api/contact.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(form)
-      });
+    // If no errors, POST to PHP API
+    if (Object.values(errors).every((e) => !e)) {
+      try {
+        const response = await fetch('http://localhost/backend/api/contact.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(form)
+        });
 
-      const result = await response.json();
+        const result = await response.json();
 
-      if (!response.ok) {
-        console.error('Server validation error:', result);
-        alert('Something went wrong on the server.');
-        return;
+        if (!response.ok) {
+          console.error('Server validation error:', result);
+          alert('Something went wrong on the server.');
+          return;
+        }
+
+        console.log('Form submitted:', result);
+        alert('Form submitted successfully!');
+
+        // Reset form
+        Object.keys(form).forEach((key) => {
+          form[key] = '';
+        });
+
+      } catch (error) {
+        console.error('Network error:', error);
+        alert('Failed to submit form. Please try again later.');
       }
-
-      console.log('Form submitted:', result);
-      alert('Form submitted successfully!');
-
-      // Reset form
-      Object.keys(form).forEach((key) => {
-        form[key] = '';
-      });
-
-    } catch (error) {
-      console.error('Network error:', error);
-      alert('Failed to submit form. Please try again later.');
     }
   }
-}
-
 </script>
 
 <template>
-  <div class="mainLayout">
-    <div class="titleDiv">
-      <h3 class='title'>Contact Us</h3>
+  <section id="contact-us">
+    <div class="mainLayout">
+      <div class="titleDiv">
+        <h3 class='title'>Contact Us</h3>
+      </div>
     </div>
-  </div>
   
 
   <form @submit.prevent="handleSubmit" class="contactForm">
     <div class="formGroup">
-      <label for="name">Name *</label>
+      <label for="name">{{data.contactUs.nameLabel}}</label>
       <input type="text" id="name" v-model="form.name" />
       <span v-if="errors.name" class="error">{{ errors.name }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="country">Country of origin *</label>
+      <label for="country">{{data.contactUs.countryLabel}}</label>
       <input type="text" id="country" v-model="form.country" />
       <span v-if="errors.country" class="error">{{ errors.country }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="contact">Contact Number *</label>
+      <label for="contact">{{data.contactUs.contactNumberLabel}}</label>
       <input type="text" id="contact" v-model="form.contact" />
       <span v-if="errors.contact" class="error">{{ errors.contact }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="email">Email *</label>
+      <label for="email">{{data.contactUs.emailLabel}}</label>
       <input type="email" id="email" v-model="form.email" />
       <span v-if="errors.email" class="error">{{ errors.email }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="company">Company *</label>
+      <label for="company">{{data.contactUs.companyLabel}}</label>
       <input type="text" id="company" v-model="form.company" />
       <span v-if="errors.company" class="error">{{ errors.company }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="jobTitle">Job Title *</label>
+      <label for="jobTitle">{{data.contactUs.jobTitleLabel}}</label>
       <input type="text" id="jobTitle" v-model="form.jobTitle" />
       <span v-if="errors.jobTitle" class="error">{{ errors.jobTitle }}</span>
     </div>
 
     <!-- Full width textarea -->
     <div class="formGroup fullWidth">
-      <label for="inquiries">Inquiries *</label>
+      <label for="inquiries">{{data.contactUs.inquiriesLabel}}</label>
       <textarea id="inquiries" rows="4" v-model="form.inquiries"></textarea>
       <span v-if="errors.inquiries" class="error">{{ errors.inquiries }}</span>
     </div>
@@ -128,10 +129,11 @@ async function handleSubmit() {
       <ComponentButton 
           :isExhibitor="true"
       >
-          SUBMIT
+          {{data.contactUs.buttonName}}
       </ComponentButton>
     </div>
   </form>
+  </section>
 </template>
 
 

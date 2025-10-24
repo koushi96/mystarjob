@@ -1,23 +1,22 @@
 <script setup>
-import logo_JobFair from '../assets/introductionSection/logo_JobFair.jpg'; 
-import roadmap_pic from '../assets/roadMap/roadmap_pic.jpg' 
+    import { resolveAsset } from '../common/commonFunctions.ts'
+    import data from '../common/data.json';
 </script>
 
 <template>
   <div class='header'>
     <div class="mainLayout">
         <div class="titleDiv">
-            <h3 class='title'>myStarJob Fair 2025 Roadmap</h3>
+            <h3 class='title'>{{data.roadMap.mainTitle}}</h3>
         </div>
         <div class="logo">
-            <img :src="logo_JobFair" alt="Company_Logo" />
+            <img :src="resolveAsset(data.roadMap.logoJobFairUrl)" alt="Company_Logo" />
         </div>
         
     </div>
     
-    
     <div>
-       <img :src="roadmap_pic" alt="roadmap_pic"></img> 
+       <img :src="resolveAsset(data.roadMap.roadmapPicUrl)" alt="roadmap_pic"></img> 
     </div>
   </div>
 </template>

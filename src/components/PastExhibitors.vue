@@ -1,12 +1,13 @@
 <script setup>
     const images = import.meta.glob('../assets/pastExhibitors/*.{jpg,jpeg,png,webp}', { eager: true });
     const imageList = Object.values(images).map(i => i.default);
+    import data from '../common/data.json';
 </script>
 
 
 <template>
     <div class="titleDiv">
-        <h3 class='title'>Past Exhibitors</h3>
+        <h3 class='title'>{{data.pastExhibitors.mainTitle}}</h3>
         <div class="gallery">
             <img v-for="(img, index) in imageList" :key="index" :src="img" alt="Past Exhibitor" />
         </div>

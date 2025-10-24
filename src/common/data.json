@@ -1,0 +1,126 @@
+{
+    "contactUs": {
+        "nameLabel" : "Name *",
+        "countryLabel" : "Country of origin *",
+        "contactNumberLabel" : "Contact Number *",
+        "emailLabel" : "Email *",
+        "companyLabel" : "Company Name *",
+        "jobTitleLabel" : "Job Title *",
+        "inquiriesLabel" : "Inquiries *",
+        "buttonName" : "SUBMIT"
+    },
+    "earlyBird":{
+        "findTheRightTalentUrl" : "../assets/earlyBird/findTheRightTalent.png",
+        "earlyBirdUrl" : "../assets/earlyBird/earlyBird_img.png "
+    },
+    "exhibitionHallLayout":{
+        "magnifyingGlassUrl" : "../assets/hallLayout/magnifying-glass.svg",
+        "floorDirectoryUrl" : "../assets/floorDirectory/floor_directory.png"
+    },
+    "exhibitionHallRegistration":{
+        "mainTitle" : "Exhibitor Registration",
+        "companyLabel" : "Company Name *",
+        "contactPersonLabel" : "Contact Person *",
+        "jobTitleLabel" : "Job Title *",
+        "contactNumberLabel" : "Contact Number *",
+        "emailLabel" : "Email *",
+        "venueLabel" : "Exhibition venue *",
+        "dateLabel" : "Exhibition date *",
+        "selectAVenueLabel" : "Select a venue",
+        "selectADateLabel" : "Select a date",
+        "modalLabel" : "Please select a venue first before choosing a date.",
+        "submitButton" : "SUBMIT",
+        "backToHome" : "BACK TO HOME"
+    },
+    "directoryOptions" : [
+        { "company": "Perkeso", "boothNum": "100" },
+        { "company": "Babas", "boothNum": "102" },
+        { "company": "Allianze", "boothNum": "103" },
+        { "company": "Aonic", "boothNum": "104" },
+        { "company": "Aat", "boothNum": "105" },
+        { "company": "Perkeso", "boothNum": "100" },
+        { "company": "Babas", "boothNum": "102" },
+        { "company": "Allianze", "boothNum": "103" },
+        { "company": "Aonic", "boothNum": "104" },
+        { "company": "Aat", "boothNum": "105" }
+    ],
+    "fairDescription" : {
+        "title" : "myStarJob fair 2025",
+        "description" : "As one of Malaysia's largest recruitment event providers, myStarjob Fair has served over 26,000 companies and 120,000 visitors. By exhibiting at our fair, you will stand a chance to meet a diverse range of candidates and enhance your corporate branding. Since The Star Newspaper also organises this event, it gives extra mileage in terms of publicity and status as one of the top hiring companies in Malaysia."
+    },
+    "jobMatching" :{
+        "jobMatchingDesc" : "Each session will have 12 recruiters and up to 24 jobseekers. Each discussion will be 2 minutes. Jobseekers will move to the next recruiter when time is up. The recruiter remains at their place. A lucky draw for the jobseekers will be done at the end of the session.",
+        "buttonName" : "BE OUR VISITOR",
+        "buttonUrl" : "/reservation",
+        "jobMatchingImgUrl": "../assets/jobMatching/jobMatching_img.png",
+        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg"
+    },
+    "headerSection" : {
+        "mainPicUrl" : "../assets/introductionSection/main_Pic.png"
+    },
+    "navMenue" : {
+        "homeButton" : "HOME",
+        "homeButtonUrl" : "/",
+        "contactUsButton" : "CONTACT US",
+        "contactUsUrl" : "/#contact-us",
+        "beOurExhibitorButton" : "BE OUR EXHIBITOR",
+        "beOurExhibitorUrl" : "/exhibitorRegistration",
+        "logoJobFairUrl" : "../assets/introductionSection/logo_JobFair.jpg",
+        "arrowNextSvg" : "../assets/introductionSection/arrow-next-small.svg" 
+    },
+    "pastExhibitors" : {
+        "mainTitle" : "Past Exhibitors"
+    },
+    "reservation":{
+        "mainTitle" : "Job Matching & Career Talk Reservation",
+        "companyLabel" : "Company Name *",
+        "contactPersonLabel" : "Contact Person *",
+        "jobTitleLabel" : "Job Title *",
+        "contactNumberLabel" : "Contact Number *",
+        "emailLabel" : "Email *",
+        "selectASession" : "Select a Session *",
+        "venueLabel" : "Exhibition venue *",
+        "dateLabel" : "Exhibition date *",
+        "selectAVenueLabel" : "Select a venue",
+        "selectADateLabel" : "Select a date",
+        "availableSlotsLabel" : "Available Slots *",
+        "selectTimeSlot" : "Select time slot",
+        "modalLabel" : "Please select a venue first before choosing a date.",
+        "submitButton" : "SUBMIT",
+        "backToHome" : "BACK TO HOME"
+    },
+    "roadMap":{
+        "mainTitle" : "myStarJob Fair 2025 Roadmap",
+        "logoJobFairUrl" : "../assets/introductionSection/logo_JobFair.jpg",
+        "roadmapPicUrl" : "../assets/roadMap/roadmap_pic.jpg"
+    },
+    "upcomingFair" : {
+        "mainTitle" : "Upcoming Fair",
+        "upcomingFairDetails" : [
+            {
+                "city": "KUALA LUMPUR", 
+                "area": "MIDVALLEY", 
+                "venue": "EXHIBITION CTR", 
+                "date": "24-25 MAY 2025",
+                "image": "../assets/upcomingFair/KL_city.png"
+            },
+            {   "city": "PULAU PINANG", 
+                "area": "SETIA SPICE", 
+                "venue": "CONVENTION CTR", 
+                "date": "14-15 JUNE 2025",
+                "image": "../assets/upcomingFair/Penang_city.webp"
+            },
+            {   "city": "JOHOR BAHRU", 
+                "area": "PERSADA", 
+                "venue": "INTL CONVENTION CTR", 
+                "date": "5-8 JULY 2025",
+                "image": "../assets/upcomingFair/Johor_city.webp"
+            }
+        ]
+    },
+    "liveCountdown" : {
+        "mainTitle" : "Next myStarJob Fair in...",
+        "countdownComplete" : "See you next year!"
+    } 
+
+}

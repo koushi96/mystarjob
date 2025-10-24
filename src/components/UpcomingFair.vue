@@ -1,23 +1,17 @@
 <script setup>
+    import { resolveAsset } from '../common/commonFunctions.ts'
+    import data from '../common/data.json';
+
     const images = import.meta.glob('../assets/upcomingFair/*.{jpg,jpeg,png,webp}', { eager: true });
     const imageList = Object.values(images).map(i => i.default);
 
-    import klCity from '../assets/upcomingFair/KL_city.png';
-
-    const upcomingFairDetails = [
-        {city: "KUALA LUMPUR", area: "MIDVALLEY", venue: "EXHIBITION CTR", date: "24-25 MAY 2025",
-        image: new URL('../assets/upcomingFair/KL_city.png', import.meta.url).href },
-        {city: "PULAU PINANG", area: "SETIA SPICE", venue: "CONVENTION CTR", date: "14-15 JUNE 2025",
-        image: new URL('../assets/upcomingFair/Penang_city.webp', import.meta.url).href },
-        {city: "JOHOR BAHRU", area: "PERSADA", venue: "INTL CONVENTION CTR", date: "5-8 JULY 2025",
-        image: new URL('../assets/upcomingFair/Johor_city.webp', import.meta.url).href },
-    ]
+    let upcomingFairDetails = data.upcomingFair.upcomingFairDetails;
 </script>
 
 
 <template>
     <div class="titleDiv">
-        <h3 class='title'>Upcoming Fair</h3>
+        <h3 class='title'>{{data.upcomingFair.mainTitle}}</h3>
     </div>
     <div class="cardDiv">
         <div class="card" v-for="(fair, index) in upcomingFairDetails" :key="index">
@@ -27,7 +21,7 @@
         <h6>{{ fair.date }}</h6>
 
         <div class="overlappingCity">
-            <img :src="fair.image" :alt="`${fair.city} Silhouette`" />
+            <img :src="resolveAsset(fair.image)" :alt="`${fair.city} Silhouette`" />
         </div>
         </div>
     </div>

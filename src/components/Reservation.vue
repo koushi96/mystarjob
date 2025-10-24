@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, ref, watch, onMounted } from 'vue';
 import ComponentButton from './ComponentButton.vue';
+import data from '../common/data.json';
 
 const form = reactive({
   company: '',
@@ -68,7 +69,6 @@ async function fetchSessionTypes() {
   }
 }
 
-//   Watcher: fetch dates only when both type and venue are selected
 watch([selectedType, selectedVenueId], async ([newType, newVenue]) => {
   selectedDate.value = '';
   form.date = '';
@@ -195,43 +195,43 @@ function handleDateChange() {
 <template>
   <div class="mainLayout">
     <div class="titleDiv">
-      <h3 class='title'>Job Matching & Career Talk Reservation</h3>
+      <h3 class='title'>{{data.reservation.mainTitle}}</h3>
     </div>
   </div>
 
   <form @submit.prevent="handleSubmit" class="contactForm">
     <div class="formGroup">
-      <label for="company">Company Name*</label>
+      <label for="company">{{data.reservation.companyLabel}}</label>
       <input type="text" id="company" v-model="form.company" />
       <span v-if="errors.company" class="error">{{ errors.company }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="contactPerson">Contact Person *</label>
+      <label for="contactPerson">{{data.reservation.contactPersonLabel}}</label>
       <input type="text" id="contactPerson" v-model="form.contactPerson" />
       <span v-if="errors.contactPerson" class="error">{{ errors.contactPerson }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="jobTitle">Job Title *</label>
+      <label for="jobTitle">{{data.reservation.jobTitleLabel}}</label>
       <input type="text" id="jobTitle" v-model="form.jobTitle" />
       <span v-if="errors.jobTitle" class="error">{{ errors.jobTitle }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="contactNumber">Contact Number *</label>
+      <label for="contactNumber">{{data.reservation.contactNumberLabel}}</label>
       <input type="text" id="contactNumber" v-model="form.contactNumber" />
       <span v-if="errors.contactNumber" class="error">{{ errors.contactNumber }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="email">Email *</label>
+      <label for="email">{{data.reservation.emailLabel}}</label>
       <input type="email" id="email" v-model="form.email" />
       <span v-if="errors.email" class="error">{{ errors.email }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="sessionType">Select a Session *</label>
+      <label for="sessionType">{{data.reservation.selectASession}}</label>
       <select v-model="selectedType">
         <option disabled value="">Select session type</option>
         <option v-for="t in sessionTypes" :key="t.id" :value="t.id">
@@ -241,7 +241,7 @@ function handleDateChange() {
     </div>
 
     <div class="formGroup">
-      <label for="venue">Exhibition Venue *</label>
+      <label for="venue">{{data.reservation.venueLabel}}</label>
       <select v-model="selectedVenueId">
         <option disabled value="">Select venue</option>
         <option v-for="v in exhibitionVenue" :key="v.id" :value="v.id">
@@ -252,9 +252,9 @@ function handleDateChange() {
     </div>
 
     <div class="formGroup">
-      <label for="date">Exhibition Date *</label>
+      <label for="date">{{data.reservation.dateLabel}}</label>
       <select v-model="selectedDate" @change="handleDateChange">
-        <option disabled value="">Select date</option>
+        <option disabled value="">{{data.reservation.selectADateLabel}}</option>
         <option v-for="d in sessionDates" :key="d" :value="d">
           {{ d }}
         </option>
@@ -263,9 +263,9 @@ function handleDateChange() {
     </div>
 
     <div class="formGroup">
-    <label for="slotTime">Available Slots *</label>
+    <label for="slotTime">{{data.reservation.availableSlotsLabel}}</label>
     <select v-model="form.slotTime" id="slotTime">
-        <option disabled value="">Select time slot</option>
+        <option disabled value="">{{data.reservation.selectTimeSlot}}</option>
         <option
         v-for="(slot, index) in availableSlots"
         :key="index"
@@ -280,15 +280,15 @@ function handleDateChange() {
     <!-- Modal -->
     <div v-if="showModal" class="modalBackdrop" @click.self="showModal = false">
       <div class="modalContent">
-        <p>Please select a venue first before choosing a date.</p>
+        <p>{{data.reservation.modalLabel}}</p>
         <button @click="showModal = false">OK</button>
       </div>
     </div>
 
     <!-- Submit button -->
     <div class="submitBtnWrapper">
-      <ComponentButton :isExhibitor="true">SUBMIT</ComponentButton>
-      <ComponentButton :isExhibitor="false"  to="/">BACK TO HOME</ComponentButton>
+      <ComponentButton :isExhibitor="true">{{data.reservation.submitButton}}</ComponentButton>
+      <ComponentButton :isExhibitor="false"  to="/">{{data.reservation.backToHome}}</ComponentButton>
     </div>
 
   </form>

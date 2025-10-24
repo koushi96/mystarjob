@@ -1,11 +1,11 @@
 <script setup>
-
-import mainPic from '../assets/introductionSection/main_Pic.png' 
+  import { resolveAsset } from '../common/commonFunctions.ts'
+  import data from '../common/data.json';
 </script>
 
 <template>
   <div class='header'>
-    <img :src="mainPic" alt="main_header_pic"></img>
+    <img :src="resolveAsset(data.headerSection.mainPicUrl)" alt="main_header_pic"></img>
   </div>
 </template>
 

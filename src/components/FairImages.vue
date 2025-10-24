@@ -1,3 +1,33 @@
+<script setup>
+  import { ref, computed } from 'vue'
+
+  const images = [
+    new URL('../assets/fairPictures/1.jpg', import.meta.url).href,
+    new URL('../assets/fairPictures/2.jpg', import.meta.url).href,
+    new URL('../assets/fairPictures/3.jpg', import.meta.url).href,
+    new URL('../assets/fairPictures/4.jpg', import.meta.url).href,
+    new URL('../assets/fairPictures/5.jpg', import.meta.url).href,
+    new URL('../assets/fairPictures/6.jpg', import.meta.url).href
+  ]
+
+  const visibleSlides = 3
+  const currentIndex = ref(0)
+
+  const maxIndex = computed(() => images.length - visibleSlides)
+
+  function nextSlide() {
+    if (currentIndex.value < maxIndex.value) {
+      currentIndex.value++
+    }
+  }
+
+  function prevSlide() {
+    if (currentIndex.value > 0) {
+      currentIndex.value--
+    }
+  }
+</script>
+
 <template>
   <div class="slider-container">
     <!-- Left Arrow -->
@@ -23,37 +53,6 @@
     </button>
   </div>
 </template>
-
-<script setup>
-import { ref, computed } from 'vue'
-
-// Static image list — replace with import.meta.glob if needed
-const images = [
-  new URL('../assets/fairPictures/1.jpg', import.meta.url).href,
-  new URL('../assets/fairPictures/2.jpg', import.meta.url).href,
-  new URL('../assets/fairPictures/3.jpg', import.meta.url).href,
-  new URL('../assets/fairPictures/4.jpg', import.meta.url).href,
-  new URL('../assets/fairPictures/5.jpg', import.meta.url).href,
-  new URL('../assets/fairPictures/6.jpg', import.meta.url).href
-]
-
-const visibleSlides = 3
-const currentIndex = ref(0)
-
-const maxIndex = computed(() => images.length - visibleSlides)
-
-function nextSlide() {
-  if (currentIndex.value < maxIndex.value) {
-    currentIndex.value++
-  }
-}
-
-function prevSlide() {
-  if (currentIndex.value > 0) {
-    currentIndex.value--
-  }
-}
-</script>
 
 <style scoped>
 .slider-container {

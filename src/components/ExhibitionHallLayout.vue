@@ -1,24 +1,10 @@
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue';
+import data from '../common/data.json';
+import { resolveAsset } from '../common/commonFunctions.ts'
 
 const images = import.meta.glob('../assets/hallLayout/*.{jpg,jpeg,png,webp}', { eager: true });
 const imageList = Object.values(images).map(i => i.default);
-
-import magnifyingGlass from '../assets/hallLayout/magnifying-glass.svg';
-import floorDirectory from '../assets/floorDirectory/floor_directory.png';
-
-const directoryOptions = [
-  { company: "Perkeso", boothNum: "100" },
-  { company: "Babas", boothNum: "102" },
-  { company: "Allianze", boothNum: "103" },
-  { company: "Aonic", boothNum: "104" },
-  { company: "Aat", boothNum: "105" },
-    { company: "Perkeso", boothNum: "100" },
-  { company: "Babas", boothNum: "102" },
-  { company: "Allianze", boothNum: "103" },
-  { company: "Aonic", boothNum: "104" },
-  { company: "Aat", boothNum: "105" },
-];
 
 const selectedOption = ref('');
 const searchText = ref('');
@@ -27,7 +13,7 @@ const isDropdownOpen = ref(false);
 // Filter options based on search
 const filteredOptions = computed(() => {
   const search = searchText.value.toLowerCase()
-  return directoryOptions.filter(option =>
+  return data.directoryOptions.filter(option =>
     option.company.toLowerCase().includes(search)
   )
 })
@@ -71,11 +57,11 @@ watch(searchText, (newVal) => {
             <img v-for="(img, index) in imageList" :key="index" :src="img" alt="Exhibition_Hall_Layout" />
         </div>
         <div class="hoverToView"> 
-            <img :src="magnifyingGlass" alt='magnifying-glass'/>
+            <img :src="resolveAsset(data.exhibitionHallLayout.magnifyingGlassUrl)" alt='magnifying-glass'/>
             <p>Click to view</p>
         </div>
         <div class='directory'>
-            <img :src="floorDirectory" alt='floor_directory'/>
+            <img :src="resolveAsset(data.exhibitionHallLayout.floorDirectoryUrl)" alt='floor_directory'/>
             <div class='searhDropdown'>
                 <div class='directoryDropdown'>
                     <label for="search">Find companies' plot number :</label>

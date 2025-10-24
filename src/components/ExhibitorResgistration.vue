@@ -1,130 +1,34 @@
 <script setup>
-import { reactive, ref, watch, onMounted } from 'vue';
-import ComponentButton from './ComponentButton.vue';
+  import { reactive, ref, watch, onMounted } from 'vue';
+  import ComponentButton from './ComponentButton.vue';
+  import data from '../common/data.json';
 
-const form = reactive({
-  company: '',
-  contactPerson: '',
-  jobTitle: '',
-  contactNumber: '',
-  email: '',
-  venue: '',
-  date: ''
-});
+  const form = reactive({
+    company: '',
+    contactPerson: '',
+    jobTitle: '',
+    contactNumber: '',
+    email: '',
+    venue: '',
+    date: ''
+  });
 
-const errors = reactive({});
-const showModal = ref(false); // Modal state
+  const errors = reactive({});
+  const showModal = ref(false); // Modal state
 
-const exhibitionVenue = ref([]);
+  const exhibitionVenue = ref([]);
 
-onMounted(() => {
-  fetchVenueData();
-});
+  onMounted(() => {
+    fetchVenueData();
+  });
 
-async function fetchVenueData() {
-  try {
-    const response = await fetch('http://localhost/backend/api/getVenue.php', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-      console.error('Server validation error:', result);
-      alert('Something went wrong on the server.');
-      return;
-    }
-
-    if (Array.isArray(result) && result.length > 0) {
-      console.log('exhibitionVenue:', result);
-      exhibitionVenue.value = result;
-      //   Only call this after venue data exists
-      fetchDateData();
-    } else {
-      console.warn('No venue data received.');
-    }
-
-  } catch (error) {
-    console.error('Network error:', error);
-    alert('Failed to load venues. Please try again later.');
-  }
-}
-
-const exhibitionDate = ref([]);
-
-async function fetchDateData() {
-  try {
-    const response = await fetch('http://localhost/backend/api/getExhibitionDates.php', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-      console.error('Server validation error:', result);
-      alert('Something went wrong on the server.');
-      return;
-    }
-
-    console.log('exhibitionDate:', result);
-    exhibitionDate.value = result; 
-
-  } catch (error) {
-    console.error('Network error:', error);
-    alert('Failed to load venues. Please try again later.');
-  }
-}
-
-const availableDates = ref([]);
-
-watch(() => form.venue, (newVenue) => {
-  form.date = ''; // Reset date
-
-  const selectedVenue = exhibitionVenue.value.find(v => v.venue_city === newVenue);
-
-  if (selectedVenue) {
-    const found = exhibitionDate.value.find(d => d.venue_id === selectedVenue.id);
-    availableDates.value = found ? found.dates : [];
-  } else {
-    availableDates.value = [];
-  }
-});
-
-const validateEmail = (email) => {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-};
-
-async function handleSubmit() {
-  Object.keys(errors).forEach((key) => (errors[key] = ''));
-
-  if (!form.contactPerson) errors.contactPerson = "Contact person's name is required.";
-  if (!form.contactNumber) errors.contactNumber = 'Contact number is required.';
-  if (!form.email) {
-    errors.email = 'Email is required.';
-  } else if (!validateEmail(form.email)) {
-    errors.email = 'Invalid email format.';
-  }
-  if (!form.company) errors.company = 'Company name is required.';
-  if (!form.jobTitle) errors.jobTitle = 'Job title is required.';
-  if (!form.venue) errors.venue = 'Exhibition venue is required.';
-  if (!form.date) errors.date = 'Exhibition date is required.';
-
-// If no errors, POST to PHP API
-  if (Object.values(errors).every((e) => !e)) {
+  async function fetchVenueData() {
     try {
-      const response = await fetch('http://localhost/backend/api/exhibitorRegistration.php', {
-        method: 'POST',
+      const response = await fetch('http://localhost/backend/api/getVenue.php', {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(form)
       });
 
       const result = await response.json();
@@ -135,34 +39,130 @@ async function handleSubmit() {
         return;
       }
 
-      console.log('Form submitted:', result);
-      alert('Form submitted successfully!');
-
-      // Reset form
-      Object.keys(form).forEach((key) => {
-        form[key] = '';
-      });
+      if (Array.isArray(result) && result.length > 0) {
+        console.log('exhibitionVenue:', result);
+        exhibitionVenue.value = result;
+        //   Only call this after venue data exists
+        fetchDateData();
+      } else {
+        console.warn('No venue data received.');
+      }
 
     } catch (error) {
       console.error('Network error:', error);
-      alert('Failed to submit form. Please try again later.');
+      alert('Failed to load venues. Please try again later.');
     }
   }
-}
 
-function handleDateChange(event) {
-    console.log("koushi !form.venue : ", !form.venue)
-  if (!form.venue) {
-    showModal.value = true;
-    form.date = '';
+  const exhibitionDate = ref([]);
+
+  async function fetchDateData() {
+    try {
+      const response = await fetch('http://localhost/backend/api/getExhibitionDates.php', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        console.error('Server validation error:', result);
+        alert('Something went wrong on the server.');
+        return;
+      }
+
+      console.log('exhibitionDate:', result);
+      exhibitionDate.value = result; 
+
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('Failed to load venues. Please try again later.');
+    }
   }
-}
+
+  const availableDates = ref([]);
+
+  watch(() => form.venue, (newVenue) => {
+    form.date = ''; // Reset date
+
+    const selectedVenue = exhibitionVenue.value.find(v => v.venue_city === newVenue);
+
+    if (selectedVenue) {
+      const found = exhibitionDate.value.find(d => d.venue_id === selectedVenue.id);
+      availableDates.value = found ? found.dates : [];
+    } else {
+      availableDates.value = [];
+    }
+  });
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  async function handleSubmit() {
+    Object.keys(errors).forEach((key) => (errors[key] = ''));
+
+    if (!form.contactPerson) errors.contactPerson = "Contact person's name is required.";
+    if (!form.contactNumber) errors.contactNumber = 'Contact number is required.';
+    if (!form.email) {
+      errors.email = 'Email is required.';
+    } else if (!validateEmail(form.email)) {
+      errors.email = 'Invalid email format.';
+    }
+    if (!form.company) errors.company = 'Company name is required.';
+    if (!form.jobTitle) errors.jobTitle = 'Job title is required.';
+    if (!form.venue) errors.venue = 'Exhibition venue is required.';
+    if (!form.date) errors.date = 'Exhibition date is required.';
+
+  // If no errors, POST to PHP API
+    if (Object.values(errors).every((e) => !e)) {
+      try {
+        const response = await fetch('http://localhost/backend/api/exhibitorRegistration.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(form)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          console.error('Server validation error:', result);
+          alert('Something went wrong on the server.');
+          return;
+        }
+
+        console.log('Form submitted:', result);
+        alert('Form submitted successfully!');
+
+        // Reset form
+        Object.keys(form).forEach((key) => {
+          form[key] = '';
+        });
+
+      } catch (error) {
+        console.error('Network error:', error);
+        alert('Failed to submit form. Please try again later.');
+      }
+    }
+  }
+
+  function handleDateChange(event) {
+    if (!form.venue) {
+      showModal.value = true;
+      form.date = '';
+    }
+  }
 </script>
 
 <template>
   <div class="mainLayout">
     <div class="titleDiv">
-      <h3 class='title'>Exhibitor Registration</h3>
+      <h3 class='title'>{{data.exhibitionHallRegistration.mainTitle}}</h3>
     </div>
   </div>
   
@@ -170,39 +170,39 @@ function handleDateChange(event) {
   <form @submit.prevent="handleSubmit" class="contactForm">
 
     <div class="formGroup">
-      <label for="company">Company Name*</label>
+      <label for="company">{{data.exhibitionHallRegistration.companyLabel}}</label>
       <input type="text" id="company" v-model="form.company" />
       <span v-if="errors.company" class="error">{{ errors.company }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="contactPerson">Contact Person *</label>
+      <label for="contactPerson">{{data.exhibitionHallRegistration.contactPersonLabel}}</label>
       <input type="text" id="contactPerson" v-model="form.contactPerson" />
       <span v-if="errors.contactPerson" class="error">{{ errors.contactPerson }}</span>
     </div>
     
     <div class="formGroup">
-      <label for="jobTitle">Job Title *</label>
+      <label for="jobTitle">{{data.exhibitionHallRegistration.jobTitleLabel}}*</label>
       <input type="text" id="jobTitle" v-model="form.jobTitle" />
       <span v-if="errors.jobTitle" class="error">{{ errors.jobTitle }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="contactNumber">Contact Number *</label>
+      <label for="contactNumber">{{data.exhibitionHallRegistration.contactNumberLabel}}</label>
       <input type="text" id="contactNumber" v-model="form.contactNumber" />
       <span v-if="errors.contactNumber" class="error">{{ errors.contactNumber }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="email">Email *</label>
+      <label for="email">{{data.exhibitionHallRegistration.emailLabel}}</label>
       <input type="email" id="email" v-model="form.email" />
       <span v-if="errors.email" class="error">{{ errors.email }}</span>
     </div>
 
 <div class="formGroup">
-  <label for="venue">Exhibition Venue *</label>
+  <label for="venue">{{data.exhibitionHallRegistration.venueLabel}}</label>
   <select id="venue" v-model="form.venue">
-    <option disabled value="">Select a venue</option>
+    <option disabled value="">{{data.exhibitionHallRegistration.selectAVenueLabel}}</option>
     <option 
       v-for="venue in exhibitionVenue" 
       :key="venue.id" 
@@ -221,7 +221,7 @@ function handleDateChange(event) {
     v-model="form.date"
     @click="handleDateChange"
   >
-    <option disabled value="">Select a date</option>
+    <option disabled value="">{{data.exhibitionHallRegistration.selectADateLabel}}</option>
     <option 
       v-for="date in availableDates" 
       :key="date" 
@@ -236,15 +236,15 @@ function handleDateChange(event) {
 <!-- Modal -->
 <div v-if="showModal" class="modalBackdrop" @click.self="showModal = false">
   <div class="modalContent">
-    <p>Please select a venue first before choosing a date.</p>
+    <p>{{data.exhibitionHallRegistration.modalLabel}}</p>
     <button @click="showModal = false">OK</button>
   </div>
 </div>
 
     <!-- Submit button -->
     <div class="submitBtnWrapper">
-      <ComponentButton :isExhibitor="true">SUBMIT</ComponentButton>
-      <ComponentButton :isExhibitor="false"  to="/">BACK TO HOME</ComponentButton>
+      <ComponentButton :isExhibitor="true">{{data.exhibitionHallRegistration.submitButton}}</ComponentButton>
+      <ComponentButton :isExhibitor="false"  to="/">{{data.exhibitionHallRegistration.backToHome}}</ComponentButton>
     </div>
   </form>
 </template>

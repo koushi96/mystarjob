@@ -1,12 +1,12 @@
 <script setup>
-
+    import data from '../common/data.json';
 </script>
 
 
 <template>
     <div class="titleDiv">
-        <h3 class='title'>myStarJob fair 2025</h3>
-        <p class='desc'>As one of Malaysia's largest recruitment event providers, myStarjob Fair has served over 26,000 companies and 120,000 visitors. By exhibiting at our fair, you will stand a chance to meet a diverse range of candidates and enhance your corporate branding. Since The Star Newspaper also organises this event, it gives extra mileage in terms of publicity and status as one of the top hiring companies in Malaysia.</p>
+        <h3 class='title'>{{data.fairDescription.title}}</h3>
+        <p class='desc'>{{data.fairDescription.description}}</p>
     </div>
 </template>
 

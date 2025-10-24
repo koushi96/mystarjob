@@ -1,16 +1,15 @@
 <script setup>
-
-import findTheRightTalent from '../assets/earlyBird/findTheRightTalent.png' 
-import earlyBird from '../assets/earlyBird/earlyBird_img.png' 
+    import data from '../common/data.json';
+    import { resolveAsset } from '../common/commonFunctions.ts'
 </script>
 
 <template>
   <div class='header'>
     <div class='leftSide'>
-        <img :src="findTheRightTalent" alt="findTheRightTalent" />
+        <img :src="resolveAsset(data.earlyBird.findTheRightTalentUrl)" alt="findTheRightTalent" />
     </div>
     <div class='rightSide'>
-        <img :src="earlyBird" alt="earlyBird" />
+        <img :src="resolveAsset(data.earlyBird.earlyBirdUrl)" alt="earlyBird" />
     </div>
     
   </div>
