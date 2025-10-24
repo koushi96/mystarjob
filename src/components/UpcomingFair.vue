@@ -11,18 +11,18 @@
 
 <template>
     <div class="titleDiv">
-        <h3 class='title'>{{data.upcomingFair.mainTitle}}</h3>
+        <h3 class='title'>{{ $t('upcomingFair.mainTitle') }}</h3>
     </div>
     <div class="cardDiv">
-        <div class="card" v-for="(fair, index) in upcomingFairDetails" :key="index">
-        <h4>{{ fair.city }}</h4>
-        <h6>{{ fair.area }}</h6>
-        <p>{{ fair.venue }}</p>
-        <h6>{{ fair.date }}</h6>
+        <div class="card"  v-for="(fair, index) in $tm('upcomingFair.upcomingFairDetails')" :key="index">
+            <h4>{{ fair.city }}</h4>
+            <h6>{{ fair.area }}</h6>
+            <p>{{ fair.venue }}</p>
+            <h6>{{ fair.date }}</h6>
 
-        <div class="overlappingCity">
-            <img :src="resolveAsset(fair.image)" :alt="`${fair.city} Silhouette`" />
-        </div>
+            <div class="overlappingCity">
+                <img :src="resolveAsset(fair.image)" :alt="`${fair.city} Silhouette`" />
+            </div>
         </div>
     </div>
 </template>

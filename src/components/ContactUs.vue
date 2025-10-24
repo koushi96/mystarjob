@@ -1,7 +1,6 @@
 <script setup>
   import { reactive, ref } from 'vue';
   import ComponentButton from './ComponentButton.vue';
-  import data from '../common/data.json';
 
   const form = reactive({
     name: '',
@@ -75,51 +74,51 @@
   <section id="contact-us">
     <div class="mainLayout">
       <div class="titleDiv">
-        <h3 class='title'>{{data.contactUs.mainTitle}}</h3>
+        <h3 class='title'>{{ $t('contactUs.mainTitle') }}</h3>
       </div>
     </div>
   
 
   <form @submit.prevent="handleSubmit" class="contactForm">
     <div class="formGroup">
-      <label for="name">{{data.contactUs.nameLabel}}</label>
+      <label for="name">{{ $t('contactUs.nameLabel') }}</label>
       <input type="text" id="name" v-model="form.name" />
       <span v-if="errors.name" class="error">{{ errors.name }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="country">{{data.contactUs.countryLabel}}</label>
+      <label for="country">{{ $t('contactUs.countryLabel') }}</label>
       <input type="text" id="country" v-model="form.country" />
       <span v-if="errors.country" class="error">{{ errors.country }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="contact">{{data.contactUs.contactNumberLabel}}</label>
+      <label for="contact">{{ $t('contactUs.contactNumberLabel') }}</label>
       <input type="text" id="contact" v-model="form.contact" />
       <span v-if="errors.contact" class="error">{{ errors.contact }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="email">{{data.contactUs.emailLabel}}</label>
+      <label for="email">{{ $t('contactUs.emailLabel') }}</label>
       <input type="email" id="email" v-model="form.email" />
       <span v-if="errors.email" class="error">{{ errors.email }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="company">{{data.contactUs.companyLabel}}</label>
+      <label for="company">{{ $t('contactUs.companyLabel') }}</label>
       <input type="text" id="company" v-model="form.company" />
       <span v-if="errors.company" class="error">{{ errors.company }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="jobTitle">{{data.contactUs.jobTitleLabel}}</label>
+      <label for="jobTitle">{{ $t('contactUs.jobTitleLabel') }}</label>
       <input type="text" id="jobTitle" v-model="form.jobTitle" />
       <span v-if="errors.jobTitle" class="error">{{ errors.jobTitle }}</span>
     </div>
 
     <!-- Full width textarea -->
     <div class="formGroup fullWidth">
-      <label for="inquiries">{{data.contactUs.inquiriesLabel}}</label>
+      <label for="inquiries">{{ $t('contactUs.inquiriesLabel') }}</label>
       <textarea id="inquiries" rows="4" v-model="form.inquiries"></textarea>
       <span v-if="errors.inquiries" class="error">{{ errors.inquiries }}</span>
     </div>
@@ -129,7 +128,7 @@
       <ComponentButton 
           :isExhibitor="true"
       >
-          {{data.contactUs.buttonName}}
+          {{ $t('contactUs.buttonName') }}
       </ComponentButton>
     </div>
   </form>

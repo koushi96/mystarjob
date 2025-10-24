@@ -1,12 +1,11 @@
 <script setup>
-    import data from '../common/data.json';
 </script>
 
 
 <template>
     <div class="titleDiv">
-        <h3 class='title'>{{data.fairDescription.title}}</h3>
-        <p class='desc'>{{data.fairDescription.description}}</p>
+        <h3 class='title'>{{ $t('fairDescription.title') }}</h3>
+        <p class='desc'>{{ $t('fairDescription.description') }}</p>
     </div>
 </template>
 

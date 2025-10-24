@@ -1,0 +1,127 @@
+{
+    "contactUs": {
+        "mainTitle": "Hubungi Kami",
+        "nameLabel": "Nama *",
+        "countryLabel": "Negara Asal *",
+        "contactNumberLabel": "Nombor Telefon *",
+        "emailLabel": "E-mel *",
+        "companyLabel": "Nama Syarikat *",
+        "jobTitleLabel": "Jawatan *",
+        "inquiriesLabel": "Sebarang pertanyaan *",
+        "buttonName": "HANTAR"
+    },
+    "earlyBird": {
+        "findTheRightTalentUrl": "../assets/earlyBird/findTheRightTalent.png",
+        "earlyBirdUrl": "../assets/earlyBird/earlyBird_img.png"
+    },
+    "exhibitionHallLayout": {
+        "magnifyingGlassUrl": "../assets/hallLayout/magnifying-glass.svg",
+        "floorDirectoryUrl": "../assets/floorDirectory/floor_directory.png",
+        "mainTitle": "Pelan Dewan Pameran",
+        "clickToView": "Klik untuk lihat",
+        "findPlotNumber": "Cari nombor petak syarikat:",
+        "noMatchesFound": "Tiada padanan ditemui"
+    },
+    "exhibitionHallRegistration": {
+        "mainTitle": "Pendaftaran bagi Ahli Pameran",
+        "companyLabel": "Nama Syarikat *",
+        "contactPersonLabel": "Orang Dihubungi *",
+        "jobTitleLabel": "Jawatan *",
+        "contactNumberLabel": "Nombor Telefon *",
+        "emailLabel": "E-mel *",
+        "venueLabel": "Tempat Pameran *",
+        "dateLabel": "Tarikh Pameran *",
+        "selectAVenueLabel": "Pilih tempat",
+        "selectADateLabel": "Pilih tarikh",
+        "modalLabel": "Sila pilih tempat dahulu sebelum memilih tarikh.",
+        "submitButton": "HANTAR",
+        "backToHome": "KEMBALI KE LAMAN UTAMA"
+    },
+    "directoryOptions": [
+        { "company": "Perkeso", "boothNum": "100" },
+        { "company": "Babas", "boothNum": "102" },
+        { "company": "Allianze", "boothNum": "103" },
+        { "company": "Aonic", "boothNum": "104" },
+        { "company": "Aat", "boothNum": "105" }
+    ],
+    "fairDescription": {
+        "title": "Pameran myStarJob 2025",
+        "description": "Sebagai salah satu penyedia acara pengambilan pekerja terbesar di Malaysia, myStarJob Fair telah berkhidmat kepada lebih daripada 26,000 syarikat dan 120,000 pelawat. Dengan menyertai pameran kami, anda berpeluang untuk bertemu dengan pelbagai calon dan meningkatkan penjenamaan korporat anda. Oleh sebab acara ini turut dianjurkan oleh Akhbar The Star, ia memberi kelebihan dari segi publisiti dan status sebagai salah satu syarikat pengambilan pekerja terkemuka di Malaysia."
+    },
+    "jobMatching": {
+        "jobMatchingDesc": "Setiap sesi akan mempunyai 12 syarikat dan maksimum 24 pencari kerja. Setiap perbincangan akan berlangsung selama 2 minit. Pencari kerja akan bergerak ke perekrut seterusnya apabila masa tamat. Perekrut kekal di tempat mereka. Cabutan bertuah untuk pencari kerja akan diadakan pada akhir sesi.",
+        "buttonName": "JADI PELAWAT KAMI",
+        "buttonUrl": "/reservation",
+        "jobMatchingImgUrl": "../assets/jobMatching/jobMatching_img.png",
+        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg"
+    },
+    "headerSection": {
+        "mainPicUrl": "../assets/introductionSection/main_Pic.png"
+    },
+    "navMenue": {
+        "homeButton": "LAMAN UTAMA",
+        "homeButtonUrl": "/",
+        "contactUsButton": "HUBUNGI KAMI",
+        "contactUsUrl": "/#contact-us",
+        "beOurExhibitorButton": "JADI PEMAMER KAMI",
+        "beOurExhibitorUrl": "/exhibitorRegistration",
+        "logoJobFairUrl": "../assets/introductionSection/logo_JobFair.jpg",
+        "arrowNextSvg": "../assets/introductionSection/arrow-next-small.svg"
+    },
+    "pastExhibitors": {
+        "mainTitle": "Pempamer kami di tahun-tahun lepas"
+    },
+    "reservation": {
+        "mainTitle": "Tempahan Sesi Padanan Kerja & Ceramah Kerjaya",
+        "companyLabel": "Nama Syarikat *",
+        "contactPersonLabel": "Orang Dihubungi *",
+        "jobTitleLabel": "Jawatan *",
+        "contactNumberLabel": "Nombor Telefon *",
+        "emailLabel": "E-mel *",
+        "selectASession": "Pilih Sesi *",
+        "venueLabel": "Tempat Pameran *",
+        "dateLabel": "Tarikh Pameran *",
+        "selectAVenueLabel": "Pilih tempat",
+        "selectADateLabel": "Pilih tarikh",
+        "availableSlotsLabel": "Slot Terbuka *",
+        "selectTimeSlot": "Pilih slot masa",
+        "modalLabel": "Sila pilih tempat dahulu sebelum memilih tarikh.",
+        "submitButton": "HANTAR",
+        "backToHome": "KEMBALI KE LAMAN UTAMA"
+    },
+    "roadMap": {
+        "mainTitle": "Peta Laluan Pameran myStarJob 2025",
+        "logoJobFairUrl": "../assets/introductionSection/logo_JobFair.jpg",
+        "roadmapPicUrl": "../assets/roadMap/roadmap_pic.jpg"
+    },
+    "upcomingFair": {
+        "mainTitle": "Pameran yang akan datang",
+        "upcomingFairDetails": [
+            {
+                "city": "KUALA LUMPUR",
+                "area": "MIDVALLEY",
+                "venue": "PUSAT PAMERAN",
+                "date": "24-25 MEI 2025",
+                "image": "../assets/upcomingFair/KL_city.png"
+            },
+            {
+                "city": "PULAU PINANG",
+                "area": "SETIA SPICE",
+                "venue": "PUSAT KONVENSYEN",
+                "date": "14-15 JUN 2025",
+                "image": "../assets/upcomingFair/Penang_city.webp"
+            },
+            {
+                "city": "JOHOR BAHRU",
+                "area": "PERSADA",
+                "venue": "PUSAT KONVENSYEN ANTARABANGSA",
+                "date": "5-8 JULAI 2025",
+                "image": "../assets/upcomingFair/Johor_city.webp"
+            }
+        ]
+    },
+    "liveCountdown": {
+        "mainTitle": "Pameran myStarJob Seterusnya dalam masa...",
+        "countdownComplete": "Jumpa anda pada tahun hadapan!"
+    }
+}

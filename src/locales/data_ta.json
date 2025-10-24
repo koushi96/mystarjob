@@ -1,0 +1,132 @@
+{
+    "contactUs": {
+        "mainTitle": "எங்களை தொடர்பு கொள்ளுங்கள்",
+        "nameLabel": "பெயர் *",
+        "countryLabel": "நாட்டின் பெயர் *",
+        "contactNumberLabel": "தொடர்பு எண் *",
+        "emailLabel": "மின்னஞ்சல் *",
+        "companyLabel": "நிறுவனத்தின் பெயர் *",
+        "jobTitleLabel": "பதவி *",
+        "inquiriesLabel": "வினவல்கள் *",
+        "buttonName": "சமர்ப்பிக்கவும்"
+    },
+    "earlyBird": {
+        "findTheRightTalentUrl": "../assets/earlyBird/findTheRightTalent.png",
+        "earlyBirdUrl": "../assets/earlyBird/earlyBird_img.png"
+    },
+    "exhibitionHallLayout": {
+        "magnifyingGlassUrl": "../assets/hallLayout/magnifying-glass.svg",
+        "floorDirectoryUrl": "../assets/floorDirectory/floor_directory.png",
+        "mainTitle": "கண்காட்சி அரங்கின் வடிவமைப்பு",
+        "clickToView": "பார்க்க கிளிக் செய்யவும்",
+        "findPlotNumber": "நிறுவனத்தின் இட எண் கண்டுபிடிக்க:",
+        "noMatchesFound": "பொருந்தக்கூடியது எதுவும் இல்லை"
+    },
+    "exhibitionHallRegistration": {
+        "mainTitle": "கண்காட்சி பதிவு",
+        "companyLabel": "நிறுவனத்தின் பெயர் *",
+        "contactPersonLabel": "தொடர்பு நபர் *",
+        "jobTitleLabel": "பதவி *",
+        "contactNumberLabel": "தொடர்பு எண் *",
+        "emailLabel": "மின்னஞ்சல் *",
+        "venueLabel": "கண்காட்சி இடம் *",
+        "dateLabel": "கண்காட்சி தேதி *",
+        "selectAVenueLabel": "ஒரு இடத்தைத் தேர்ந்தெடுக்கவும்",
+        "selectADateLabel": "ஒரு தேதியைத் தேர்ந்தெடுக்கவும்",
+        "modalLabel": "தயவுசெய்து முதலில் இடத்தைத் தேர்ந்தெடுத்து பின்னர் தேதியைத் தேர்ந்தெடுக்கவும்.",
+        "submitButton": "சமர்ப்பிக்கவும்",
+        "backToHome": "முகப்புக்குத் திரும்ப"
+    },
+    "directoryOptions": [
+        { "company": "Perkeso", "boothNum": "100" },
+        { "company": "Babas", "boothNum": "102" },
+        { "company": "Allianze", "boothNum": "103" },
+        { "company": "Aonic", "boothNum": "104" },
+        { "company": "Aat", "boothNum": "105" },
+        { "company": "Perkeso", "boothNum": "100" },
+        { "company": "Babas", "boothNum": "102" },
+        { "company": "Allianze", "boothNum": "103" },
+        { "company": "Aonic", "boothNum": "104" },
+        { "company": "Aat", "boothNum": "105" }
+    ],
+    "fairDescription": {
+        "title": "myStarJob வேலைவாய்ப்பு விழா 2025",
+        "description": "மலேசியாவின் மிகப்பெரிய வேலைவாய்ப்பு கண்காட்சி நிகழ்வுகளில் ஒன்றாகும் myStarJob Fair. இதுவரை 26,000-க்கும் மேற்பட்ட நிறுவனங்கள் மற்றும் 1,20,000-க்கும் மேற்பட்ட பார்வையாளர்கள் கலந்து கொண்டுள்ளனர். இந்த கண்காட்சியில் பங்கேற்பதன் மூலம், பல்வேறு வேட்பாளர்களை சந்தித்து, உங்கள் நிறுவனத்தின் பிராண்டை உயர்த்தும் வாய்ப்பு கிடைக்கும். The Star Newspaper நிறுவனத்துடன் இணைந்து நடத்தப்படும் இந்த நிகழ்வு, உங்களுக்கு கூடுதல் பிரச்சாரமும், மதிப்புமிக்க நிறுவனமாக அடையாளம் காணப்படும் வாய்ப்பையும் வழங்குகிறது."
+    },
+    "jobMatching": {
+        "jobMatchingDesc": "ஒவ்வொரு அமர்விலும் 12 ஆட்சேர்ப்பு அதிகாரிகள் மற்றும் 24 வேட்பாளர்கள் இருப்பார்கள். ஒவ்வொரு பேச்சும் 2 நிமிடங்கள் நீடிக்கும். நேரம் முடிந்ததும் வேட்பாளர்கள் அடுத்த ஆட்சேர்ப்பு அதிகாரியிடம் செல்லுவர். ஆட்சேர்ப்பு அதிகாரிகள் தங்களது இடத்தில் இருப்பார்கள். அமர்வு முடிவில் வேட்பாளர்களுக்காக ஒரு லக்கி டிரா நடத்தப்படும்.",
+        "buttonName": "எங்கள் பார்வையாளராக இருங்கள்",
+        "buttonUrl": "/reservation",
+        "jobMatchingImgUrl": "../assets/jobMatching/jobMatching_img.png",
+        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg"
+    },
+    "headerSection": {
+        "mainPicUrl": "../assets/introductionSection/main_Pic.png"
+    },
+    "navMenue": {
+        "homeButton": "முகப்பு",
+        "homeButtonUrl": "/",
+        "contactUsButton": "எங்களை தொடர்பு கொள்ளுங்கள்",
+        "contactUsUrl": "/#contact-us",
+        "beOurExhibitorButton": "எங்கள் கண்காட்சியாளர் ஆகுங்கள்",
+        "beOurExhibitorUrl": "/exhibitorRegistration",
+        "logoJobFairUrl": "../assets/introductionSection/logo_JobFair.jpg",
+        "arrowNextSvg": "../assets/introductionSection/arrow-next-small.svg"
+    },
+    "pastExhibitors": {
+        "mainTitle": "முன்னாள் கண்காட்சியாளர்கள்"
+    },
+    "reservation": {
+        "mainTitle": "வேலை பொருத்தம் மற்றும் தொழில் உரை பதிவு",
+        "companyLabel": "நிறுவனத்தின் பெயர் *",
+        "contactPersonLabel": "தொடர்பு நபர் *",
+        "jobTitleLabel": "பதவி *",
+        "contactNumberLabel": "தொடர்பு எண் *",
+        "emailLabel": "மின்னஞ்சல் *",
+        "selectASession": "அமர்வைத் தேர்ந்தெடுக்கவும் *",
+        "venueLabel": "கண்காட்சி இடம் *",
+        "dateLabel": "கண்காட்சி தேதி *",
+        "selectAVenueLabel": "ஒரு இடத்தைத் தேர்ந்தெடுக்கவும்",
+        "selectADateLabel": "ஒரு தேதியைத் தேர்ந்தெடுக்கவும்",
+        "availableSlotsLabel": "கண்காட்சி நேரம் *",
+        "selectTimeSlot": "நேரத்தைத் தேர்ந்தெடுக்கவும்",
+        "modalLabel": "தயவுசெய்து முதலில் இடத்தைத் தேர்ந்தெடுத்து பின்னர் தேதியைத் தேர்ந்தெடுக்கவும்.",
+        "submitButton": "சமர்ப்பிக்கவும்",
+        "backToHome": "முகப்புக்குத் திரும்ப"
+    },
+    "roadMap": {
+        "mainTitle": "myStarJob வேலைவாய்ப்பு விழா 2025 திட்ட வரைபடம்",
+        "logoJobFairUrl": "../assets/introductionSection/logo_JobFair.jpg",
+        "roadmapPicUrl": "../assets/roadMap/roadmap_pic.jpg"
+    },
+    "upcomingFair": {
+        "mainTitle": "வரவிருக்கும் வேலைவாய்ப்பு விழா",
+        "upcomingFairDetails": [
+            {
+                "city": "கோலாலம்பூர்",
+                "area": "மிட் வாலி",
+                "venue": "கண்காட்சி மையம்",
+                "date": "24-25 மே 2025",
+                "image": "../assets/upcomingFair/KL_city.png"
+            },
+            {
+                "city": "புலாவ் பினாங்",
+                "area": "செட்டியா ஸ்பைஸ்",
+                "venue": "கான்வென்ஷன் மையம்",
+                "date": "14-15 ஜூன் 2025",
+                "image": "../assets/upcomingFair/Penang_city.webp"
+            },
+            {
+                "city": "ஜொகூர் பாரு",
+                "area": "பெர்சடா",
+                "venue": "இன்டர்நேஷனல் கான்வென்ஷன் மையம்",
+                "date": "5-8 ஜூலை 2025",
+                "image": "../assets/upcomingFair/Johor_city.webp"
+            }
+        ]
+    },
+    "liveCountdown": {
+        "mainTitle": "அடுத்த myStarJob வேலைவாய்ப்பு விழாவிற்கு இன்னும்...",
+        "countdownComplete": "அடுத்த ஆண்டு சந்திப்போம்!"
+    }
+}

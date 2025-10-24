@@ -120,7 +120,7 @@
             :src="resolveAsset(data.jobMatching.jobMatchingImgUrl)"
             alt="jobMatching_img" />
         <div class="jobMatchingDesc">
-            <p>{{ data.jobMatching.jobMatchingDesc }}</p>
+            <p>{{ $t('jobMatching.jobMatchingDesc') }}</p>
         </div>
         </div>
 
@@ -177,7 +177,7 @@
                 :isExhibitor="true"
                 :to=data.jobMatching.buttonUrl
             >
-              {{data.jobMatching.buttonName}}
+              {{ $t('jobMatching.buttonName') }}
             </ComponentButton>
         </div>
 

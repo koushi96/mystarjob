@@ -1,6 +1,5 @@
 <script setup>
   import { ref, onMounted, onUnmounted } from 'vue'
-  import data from '../common/data.json';
   const targetDate = new Date('2025-12-31T23:59:59')
 
   const timeLeft = ref({
@@ -51,7 +50,7 @@
 <template>
   <div class="mainLayout">
       <div class="titleDiv">
-      <h3 class='title'>{{data.liveCountdown.mainTitle}}</h3>
+      <h3 class='title'>{{ $t('liveCountdown.mainTitle') }}</h3>
       </div>
   </div>
   <div class="countdown">
@@ -62,7 +61,7 @@
       <span>{{ timeLeft.seconds }}s</span>
       </div>
       <div v-else>
-      <strong>{{data.liveCountdown.countdownComplete}}</strong>
+      <strong>{{ $t('liveCountdown.countdownComplete') }}</strong>
       </div>
   </div>
 </template>

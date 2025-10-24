@@ -7,7 +7,7 @@
   <div class='header'>
     <div class="mainLayout">
         <div class="titleDiv">
-            <h3 class='title'>{{data.roadMap.mainTitle}}</h3>
+            <h3 class='title'>{{ $t('roadMap.mainTitle') }}</h3>
         </div>
         <div class="logo">
             <img :src="resolveAsset(data.roadMap.logoJobFairUrl)" alt="Company_Logo" />

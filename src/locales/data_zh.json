@@ -1,0 +1,127 @@
+{
+    "contactUs": {
+        "mainTitle": "联系我们",
+        "nameLabel": "姓名 *",
+        "countryLabel": "来自国家 *",
+        "contactNumberLabel": "联系电话 *",
+        "emailLabel": "电子邮箱 *",
+        "companyLabel": "公司名称 *",
+        "jobTitleLabel": "职位 *",
+        "inquiriesLabel": "您的咨询 *",
+        "buttonName": "提交"
+    },
+    "earlyBird": {
+        "findTheRightTalentUrl": "../assets/earlyBird/findTheRightTalent.png",
+        "earlyBirdUrl": "../assets/earlyBird/earlyBird_img.png"
+    },
+    "exhibitionHallLayout": {
+        "magnifyingGlassUrl": "../assets/hallLayout/magnifying-glass.svg",
+        "floorDirectoryUrl": "../assets/floorDirectory/floor_directory.png",
+        "mainTitle": "展览馆布局图",
+        "clickToView": "点击查看",
+        "findPlotNumber": "查找公司展位号：",
+        "noMatchesFound": "未找到相关结果"
+    },
+    "exhibitionHallRegistration": {
+        "mainTitle": "参展商登记",
+        "companyLabel": "公司名称 *",
+        "contactPersonLabel": "联络人 *",
+        "jobTitleLabel": "职位 *",
+        "contactNumberLabel": "联系电话 *",
+        "emailLabel": "电子邮箱 *",
+        "venueLabel": "展览地点 *",
+        "dateLabel": "展览日期 *",
+        "selectAVenueLabel": "选择地点",
+        "selectADateLabel": "选择日期",
+        "modalLabel": "请先选择地点再选择日期。",
+        "submitButton": "提交",
+        "backToHome": "返回主页"
+    },
+    "directoryOptions": [
+        { "company": "Perkeso", "boothNum": "100" },
+        { "company": "Babas", "boothNum": "102" },
+        { "company": "Allianze", "boothNum": "103" },
+        { "company": "Aonic", "boothNum": "104" },
+        { "company": "Aat", "boothNum": "105" }
+    ],
+    "fairDescription": {
+        "title": "myStarJob 招聘展 2025",
+        "description": "作为马来西亚最大的招聘活动之一，myStarJob 招聘展已为超过 26,000 家公司和 120,000 名访客提供服务。通过参加本次展会，您将有机会接触到各种类型的求职者，同时提升企业品牌形象。由于本活动由《星报》主办，因此在宣传与知名度方面将为企业带来更多曝光和优势。"
+    },
+    "jobMatching": {
+        "jobMatchingDesc": "每个场次将有 12 位招聘代表和最多 24 位求职者。每次交流为 2 分钟，时间到后求职者将移至下一位招聘代表，招聘代表保持在原位。场次结束后将为求职者举办幸运抽奖活动。",
+        "buttonName": "成为我们的访客",
+        "buttonUrl": "/reservation",
+        "jobMatchingImgUrl": "../assets/jobMatching/jobMatching_img.png",
+        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg"
+    },
+    "headerSection": {
+        "mainPicUrl": "../assets/introductionSection/main_Pic.png"
+    },
+    "navMenue": {
+        "homeButton": "主页",
+        "homeButtonUrl": "/",
+        "contactUsButton": "联系我们",
+        "contactUsUrl": "/#contact-us",
+        "beOurExhibitorButton": "成为参展商",
+        "beOurExhibitorUrl": "/exhibitorRegistration",
+        "logoJobFairUrl": "../assets/introductionSection/logo_JobFair.jpg",
+        "arrowNextSvg": "../assets/introductionSection/arrow-next-small.svg"
+    },
+    "pastExhibitors": {
+        "mainTitle": "往届参展商"
+    },
+    "reservation": {
+        "mainTitle": "工作配对与职业讲座预约",
+        "companyLabel": "公司名称 *",
+        "contactPersonLabel": "联络人 *",
+        "jobTitleLabel": "职位 *",
+        "contactNumberLabel": "联系电话 *",
+        "emailLabel": "电子邮箱 *",
+        "selectASession": "选择场次 *",
+        "venueLabel": "展览地点 *",
+        "dateLabel": "展览日期 *",
+        "selectAVenueLabel": "选择地点",
+        "selectADateLabel": "选择日期",
+        "availableSlotsLabel": "可用时段 *",
+        "selectTimeSlot": "选择时间段",
+        "modalLabel": "请先选择地点再选择日期。",
+        "submitButton": "提交",
+        "backToHome": "返回主页"
+    },
+    "roadMap": {
+        "mainTitle": "myStarJob 招聘展 2025 路线图",
+        "logoJobFairUrl": "../assets/introductionSection/logo_JobFair.jpg",
+        "roadmapPicUrl": "../assets/roadMap/roadmap_pic.jpg"
+    },
+    "upcomingFair": {
+        "mainTitle": "即将举办的展会",
+        "upcomingFairDetails": [
+            {
+                "city": "吉隆坡",
+                "area": "Mid Valley",
+                "venue": "展览中心",
+                "date": "2025年5月24日至25日",
+                "image": "../assets/upcomingFair/KL_city.png"
+            },
+            {
+                "city": "槟城",
+                "area": "Setia Spice",
+                "venue": "会议中心",
+                "date": "2025年6月14日至15日",
+                "image": "../assets/upcomingFair/Penang_city.webp"
+            },
+            {
+                "city": "新山",
+                "area": "Persada",
+                "venue": "国际会议中心",
+                "date": "2025年7月5日至8日",
+                "image": "../assets/upcomingFair/Johor_city.webp"
+            }
+        ]
+    },
+    "liveCountdown": {
+        "mainTitle": "下一届 myStarJob 招聘展倒计时...",
+        "countdownComplete": "明年见！"
+    }
+}

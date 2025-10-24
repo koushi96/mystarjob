@@ -1,7 +1,6 @@
 <script setup>
   import { reactive, ref, watch, onMounted } from 'vue';
   import ComponentButton from './ComponentButton.vue';
-  import data from '../common/data.json';
 
   const form = reactive({
     company: '',
@@ -162,7 +161,7 @@
 <template>
   <div class="mainLayout">
     <div class="titleDiv">
-      <h3 class='title'>{{data.exhibitionHallRegistration.mainTitle}}</h3>
+      <h3 class='title'>{{ $t('exhibitionHallRegistration.mainTitle') }}</h3>
     </div>
   </div>
   
@@ -170,41 +169,41 @@
   <form @submit.prevent="handleSubmit" class="contactForm">
 
     <div class="formGroup">
-      <label for="company">{{data.exhibitionHallRegistration.companyLabel}}</label>
+      <label for="company">{{ $t('exhibitionHallRegistration.companyLabel') }}</label>
       <input type="text" id="company" v-model="form.company" />
       <span v-if="errors.company" class="error">{{ errors.company }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="contactPerson">{{data.exhibitionHallRegistration.contactPersonLabel}}</label>
+      <label for="contactPerson">{{ $t('exhibitionHallRegistration.contactPersonLabel') }}</label>
       <input type="text" id="contactPerson" v-model="form.contactPerson" />
       <span v-if="errors.contactPerson" class="error">{{ errors.contactPerson }}</span>
     </div>
     
     <div class="formGroup">
-      <label for="jobTitle">{{data.exhibitionHallRegistration.jobTitleLabel}}*</label>
+      <label for="jobTitle">{{ $t('exhibitionHallRegistration.jobTitleLabel') }}</label>
       <input type="text" id="jobTitle" v-model="form.jobTitle" />
       <span v-if="errors.jobTitle" class="error">{{ errors.jobTitle }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="contactNumber">{{data.exhibitionHallRegistration.contactNumberLabel}}</label>
+      <label for="contactNumber">{{ $t('exhibitionHallRegistration.contactNumberLabel') }}</label>
       <input type="text" id="contactNumber" v-model="form.contactNumber" />
       <span v-if="errors.contactNumber" class="error">{{ errors.contactNumber }}</span>
     </div>
 
     <div class="formGroup">
-      <label for="email">{{data.exhibitionHallRegistration.emailLabel}}</label>
+      <label for="email">{{ $t('exhibitionHallRegistration.emailLabel') }}</label>
       <input type="email" id="email" v-model="form.email" />
       <span v-if="errors.email" class="error">{{ errors.email }}</span>
     </div>
 
 <div class="formGroup">
-  <label for="venue">{{data.exhibitionHallRegistration.venueLabel}}</label>
+  <label for="venue">{{ $t('exhibitionHallRegistration.venueLabel') }}</label>
   <select id="venue" v-model="form.venue">
-    <option disabled value="">{{data.exhibitionHallRegistration.selectAVenueLabel}}</option>
+    <option disabled value="">{{ $t('exhibitionHallRegistration.selectAVenueLabel') }}</option>
     <option 
-      v-for="venue in exhibitionVenue" 
+      v-for="venue in $tm('exhibitionVenue')"
       :key="venue.id" 
       :value="venue.venue_city"
     >
@@ -215,13 +214,13 @@
 </div>
 
 <div class="formGroup">
-  <label for="date">{{data.exhibitionHallRegistration.dateLabel}}</label>
+  <label for="date">{{ $t('exhibitionHallRegistration.dateLabel') }}</label>
   <select 
     id="date" 
     v-model="form.date"
     @click="handleDateChange"
   >
-    <option disabled value="">{{data.exhibitionHallRegistration.selectADateLabel}}</option>
+    <option disabled value="">{{ $t('exhibitionHallRegistration.selectADateLabel') }}</option>
     <option 
       v-for="date in availableDates" 
       :key="date" 
@@ -236,15 +235,15 @@
 <!-- Modal -->
 <div v-if="showModal" class="modalBackdrop" @click.self="showModal = false">
   <div class="modalContent">
-    <p>{{data.exhibitionHallRegistration.modalLabel}}</p>
+    <p>{{ $t('exhibitionHallRegistration.modalLabel') }}</p>
     <button @click="showModal = false">OK</button>
   </div>
 </div>
 
     <!-- Submit button -->
     <div class="submitBtnWrapper">
-      <ComponentButton :isExhibitor="true">{{data.exhibitionHallRegistration.submitButton}}</ComponentButton>
-      <ComponentButton :isExhibitor="false"  to="/">{{data.exhibitionHallRegistration.backToHome}}</ComponentButton>
+      <ComponentButton :isExhibitor="true">{{ $t('exhibitionHallRegistration.submitButton') }}</ComponentButton>
+      <ComponentButton :isExhibitor="false"  to="/">{{ $t('exhibitionHallRegistration.backToHome') }}</ComponentButton>
     </div>
   </form>
 </template>
