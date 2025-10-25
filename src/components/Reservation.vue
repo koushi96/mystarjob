@@ -232,7 +232,7 @@ function handleDateChange() {
     <div class="formGroup">
       <label for="sessionType">{{ $t('reservation.selectASession') }}</label>
       <select v-model="selectedType">
-        <option disabled value="">Select session type</option>
+        <option disabled value="">{{$t('reservation.selectSessionType')}}</option>
         <option v-for="t in sessionTypes" :key="t.id" :value="t.id">
           {{ t.type_name }}
         </option>
@@ -242,7 +242,7 @@ function handleDateChange() {
     <div class="formGroup">
       <label for="venue">{{ $t('reservation.venueLabel') }}</label>
       <select v-model="selectedVenueId">
-        <option disabled value="">Select venue</option>
+        <option disabled value="">{{$t('reservation.selectAVenueLabel')}}</option>
         <option v-for="v in exhibitionVenue" :key="v.id" :value="v.id">
           {{ v.venue_city }}
         </option>
@@ -308,7 +308,8 @@ function handleDateChange() {
 }
 .title {
   color: black;
-  font-size: 4rem;
+  font-size: 3.5rem;
+  font-height: 4rem;;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -402,5 +403,17 @@ select {
   padding: 0.6rem 1.2rem;
   border-radius: 4px;
   cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .title {
+      font-size:2rem;
+      font-height: 2.5rem;
+  }
+
+  .contactForm {
+    margin: 16px auto;
+    grid-template-columns: 1fr;
+  }
 }
 </style>

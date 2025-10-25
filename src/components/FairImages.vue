@@ -1,120 +1,77 @@
 <script setup>
-  import { ref, computed } from 'vue'
-
-  const images = [
-    new URL('../assets/fairPictures/1.jpg', import.meta.url).href,
-    new URL('../assets/fairPictures/2.jpg', import.meta.url).href,
-    new URL('../assets/fairPictures/3.jpg', import.meta.url).href,
-    new URL('../assets/fairPictures/4.jpg', import.meta.url).href,
-    new URL('../assets/fairPictures/5.jpg', import.meta.url).href,
-    new URL('../assets/fairPictures/6.jpg', import.meta.url).href
-  ]
-
-  const visibleSlides = 3
-  const currentIndex = ref(0)
-
-  const maxIndex = computed(() => images.length - visibleSlides)
-
-  function nextSlide() {
-    if (currentIndex.value < maxIndex.value) {
-      currentIndex.value++
-    }
-  }
-
-  function prevSlide() {
-    if (currentIndex.value > 0) {
-      currentIndex.value--
-    }
-  }
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+  import data from '../common/data.json';
+  import { resolveAsset } from '../common/commonFunctions.ts'
 </script>
 
 <template>
-  <div class="slider-container">
-    <!-- Left Arrow -->
-    <button class="nav-button left" @click="prevSlide" :disabled="currentIndex === 0">
-      &#10094;
-    </button>
-
-    <!-- Slider Window -->
-    <div class="slider-window">
-      <div
-        class="slider-track"
-        :style="{ transform: `translateX(-${currentIndex * (100 / visibleSlides)}%)` }"
-      >
-        <div class="slide" v-for="(img, index) in images" :key="index">
-          <img :src="img" alt="Slide Image" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Right Arrow -->
-    <button class="nav-button right" @click="nextSlide" :disabled="currentIndex >= maxIndex">
-      &#10095;
-    </button>
+  <div class="swiper-wrapper">
+    <Swiper
+      :modules="[Navigation, Pagination, Autoplay]"
+      :slides-per-view="3"
+      :space-between="20"
+      :loop="true"
+      :autoplay="{ delay: 3000, disableOnInteraction: false }"
+      :pagination="{ clickable: true }"
+      navigation
+      :breakpoints="{
+        0: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }"
+    >
+      <SwiperSlide v-for="(img, index) in data.fairImages.images" :key="index">
+        <img :src="resolveAsset(img)" alt="Fair Image" class="slide-img" />
+      </SwiperSlide>
+    </Swiper>
   </div>
 </template>
 
 <style scoped>
-.slider-container {
+.swiper-wrapper {
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 2rem auto;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
 }
 
-.slider-window {
-  flex-grow: 1;
-  overflow: hidden;
-}
-
-.slider-track {
-  display: flex;
-  transition: transform 0.4s ease-in-out;
-  width: fit-content;
-}
-
-.slide {
-  flex: 0 0 calc(100% / 3); 
-  padding: 8px;
-}
-
-.slide img {
+.slide-img {
   width: 100%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
 }
 
-.nav-button {
-  background-color: white;
-  color: black;
-  border: none;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-  transition: background 0.2s ease;
+.slide-img:hover {
+  transform: scale(1.03);
 }
 
-.nav-button:hover {
-  background: linear-gradient(to right, purple, blue);
-  color: white;
+:deep(.swiper-pagination-bullet) {
+  background: #ccc;
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+  transition: background 0.3s ease;
 }
 
-.nav-button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
+:deep(.swiper-pagination-bullet-active) {
+  background: linear-gradient(to right, #703eff, #2c97ff);
 }
 
-.nav-button.left {
-  margin-right: 10px;
+/* Customize navigation arrows */
+:deep(.swiper-button-next),
+:deep(.swiper-button-prev) {
+  color: #703eff;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.nav-button.right {
-  margin-left: 10px;
+:deep(.swiper-button-next:hover),
+:deep(.swiper-button-prev:hover) {
+  color: #2c97ff;
+  transform: scale(1.1);
 }
 </style>

@@ -159,8 +159,8 @@
 .title {
   color: black;
   border: none;
-  font-size: 4rem;
-  font-height: 5rem;
+  font-size: 3.5rem;
+  font-height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,5 +229,17 @@ textarea:focus {
   grid-column: 1 / -1;
   text-align: center;
   margin-top: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .title {
+      font-size:2rem;
+      font-height: 2.5rem;
+  }
+
+  .contactForm {
+    margin: 16px auto;
+    grid-template-columns: 1fr;
+  }
 }
 </style>

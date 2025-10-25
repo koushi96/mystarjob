@@ -53,7 +53,9 @@
         "buttonName": "JADI PELAWAT KAMI",
         "buttonUrl": "/reservation",
         "jobMatchingImgUrl": "../assets/jobMatching/jobMatching_img.png",
-        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg"
+        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg",
+        "careerTalkSession" : "Sesi Ceramah Kerjaya",
+        "day" : "Hari"
     },
     "headerSection": {
         "mainPicUrl": "../assets/introductionSection/main_Pic.png"
@@ -83,6 +85,7 @@
         "dateLabel": "Tarikh Pameran *",
         "selectAVenueLabel": "Pilih tempat",
         "selectADateLabel": "Pilih tarikh",
+        "selectSessionType" : "Pilih Jenis Sesi",
         "availableSlotsLabel": "Slot Terbuka *",
         "selectTimeSlot": "Pilih slot masa",
         "modalLabel": "Sila pilih tempat dahulu sebelum memilih tarikh.",

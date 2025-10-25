@@ -15,8 +15,8 @@
         
     </div>
     
-    <div>
-       <img :src="resolveAsset(data.roadMap.roadmapPicUrl)" alt="roadmap_pic"></img> 
+    <div class="roadMapDiv">
+       <img :src="resolveAsset(data.roadMap.roadmapPicUrl)" alt="roadmap_pic" />
     </div>
   </div>
 </template>
@@ -58,8 +58,8 @@
 .title {
     color: black;
     border: none;
-    font-size: 4rem;
-    font-height: 5rem;
+    font-size: 3.5rem;
+    font-height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,6 +70,57 @@
     width: 100%;
     height: auto;
     object-fit: contain;
+}
+
+@media (max-width: 767px) {
+    .mainLayout {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .titleDiv {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title {
+        font-size:2rem;
+        font-height: 2.5rem;
+        margin-bottom: 16px;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 36px;
+    }
+
+    .logo img {
+        height: auto;      
+        width: 50%;      
+        object-fit: contain;
+    }
+
+    .roadMapDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .roadMapDiv img {
+        height: auto;      
+        width: 100%;      
+        object-fit: contain;
+    }
 }
 
 

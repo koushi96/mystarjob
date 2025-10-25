@@ -30,32 +30,33 @@
 
 <style scoped>
 .titleDiv {
-    width: auto;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 .title {
-    color: black;
-    border: none;
-    font-size: 4rem;
-    font-height: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0;
+  color: black;
+  border: none;
+  font-size: 3.5rem;
+  font-height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
 }
 
-.cardDiv{
-    width: auto;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap : 24px
+.cardDiv {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -63,21 +64,22 @@
   background-color: #367588;
   color: white;
   width: 15rem;
-  height: 20rem;
+  min-height: 18rem;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 1.5rem;
-  overflow: visible; 
+  overflow: visible;
+  box-sizing: border-box;
 }
 
 .overlappingCity {
   position: absolute;
   bottom: 0;
-  left: -2.5% ; 
-  width: 105% ; 
+  left: -2.5%;
+  width: 105%;
   height: 6rem;
   pointer-events: none;
   z-index: 0;
@@ -87,46 +89,72 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.3; 
+  opacity: 0.3;
 }
 
 .card h4 {
-    font-size: 2.5rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: start;
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: start;
 }
 
 .card h6 {
-    font-size: 1.8rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: start;
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: start;
 }
 
 .card p {
-    font-size: 1.2rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: start;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  text-align: start;
+  line-height: 1.4;
 }
 
-
 .gallery {
-    width: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem 6rem; 
-    justify-content: start;
-    margin-bottom: 64px;
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 6rem;
+  justify-content: start;
+  margin-bottom: 64px;
 }
 
 .gallery img {
-    height: 55px;
-    width: auto;
-    object-fit: contain;
+  height: 55px;
+  width: auto;
+  object-fit: contain;
 }
 
+@media (max-width: 1024px) {
+  .cardDiv {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
 
+  .card {
+    width: 14rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 2rem;
+    font-height: 2.5rem;
+  }
+
+  .cardDiv {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    min-height: auto;
+  }
+}
 </style>
 

@@ -128,7 +128,7 @@
         <div v-for="(session, index) in JobMatchingSessionList" :key="index" class="slotDiv">
 
             <div class="eachDayDiv">
-                <p>Day {{ session.day }} - {{ session.date }}</p>
+                <p>{{ $t('jobMatching.day') }} {{ session.day }} - {{ session.date }}</p>
 
                 <!-- Chunk list into rows of 3 -->
                 <div 
@@ -147,13 +147,13 @@
             </div>
         </div>
             
-        <h1 class="dividerTitle">Career Talk Session</h1>
+        <h1 class="dividerTitle">{{ $t('jobMatching.careerTalkSession') }}</h1>
 
         <!-- Loop through each day/session -->
         <div v-for="(session, index) in careerTalkSessionList" :key="index" class="slotDiv">
 
             <div class="eachDayDiv">
-                <p>Day {{ session.day }} - {{ session.date }}</p>
+                <p>{{ $t('jobMatching.day') }} {{ session.day }} - {{ session.date }}</p>
 
                 <!-- Chunk list into rows of 3 -->
                 <div 
@@ -195,23 +195,29 @@
 
 <style scoped>
   .titleDiv {
-    width: auto;
-    height: auto;
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     border-top: 3px solid black;
-    margin-left: -5rem;
     color: white;
-    background: linear-gradient(to bottom,
-            purple 0%,
-            #00308F 80%,
-            #00308F 96%,
-            white 100%);
+    background: linear-gradient(
+      to bottom,
+      purple 0%,
+      #00308F 80%,
+      #00308F 96%,
+      white 100%
+    );
+    overflow: hidden;
   }
 
   .bodyContainer {
-    max-width: 100vw;
+    max-width: 100%;
     height: auto;
-    margin-right: 7rem;
-    margin-left: 7rem;
+    margin: 0 auto;
+    padding: 0 5rem;
     text-align: center;
     overflow-x: hidden;
     overflow-y: auto;
@@ -224,11 +230,11 @@
     justify-content: start;
     align-items: center;
     text-align: center;
-    margin: 5rem 0 5rem;
+    margin: 5rem 0;
   }
 
   .jobMatchingDiv img {
-    height: 35rem;
+    height: 30rem;
     width: auto;
   }
 
@@ -293,12 +299,6 @@
   .eachCompanyCard:hover {
     transform: scale(1.2);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  } 
-
-  .dayDivider {
-    margin: 0rem 0 2rem;
-    display: flex;
-    justify-content: center;
   }
 
   .dividerTitle {
@@ -319,21 +319,130 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 64px 0 64px;
+    margin: 64px 0;
   }
 
   .freeAdmissionImgDiv {
-    width: auto;
-    height: 260px;
+    width: 80%;
+    height: auto;
     background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .freeAdmissionImgDiv img{
-    height: 250px;
-    width: auto;
+  .freeAdmissionImgDiv img {
+    width: 100%;
+    height: auto;
     object-fit: contain;
+  }
+
+  @media (max-width: 1024px) {
+    .bodyContainer {
+      padding: 0 2rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .bodyContainer {
+      padding: 0 1rem;
+    }
+
+    .jobMatchingDiv {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 5rem 0;
+    }
+
+    .jobMatchingDiv img {
+      height: auto;
+      width: 80%;
+    }
+
+    .jobMatchingDesc {
+      margin-left: 0%;
+      width: 70%;
+      text-align: start;
+    }
+
+    .jobMatchingDesc p {
+      font-size: 16px;
+      line-height: 28px;
+    }
+
+    .eachCompanyRow {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .eachCompanyCard {
+      min-width: 70%;
+    }
+
+    .freeAdmissionImgDiv {
+      width: 100%;
+      height: auto;
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .freeAdmissionImgDiv img {
+      height: auto;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px){
+    .bodyContainer {
+      padding: 0 2rem;
+    }
+
+    .jobMatchingDiv {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 5rem 0;
+    }
+
+    .jobMatchingDiv img {
+      height: auto;
+      width: 80%;
+    }
+
+    .jobMatchingDesc {
+      margin-left: 0%;
+      width: 70%;
+      text-align: start;
+    }
+
+    .jobMatchingDesc p {
+      font-size: 16px;
+      line-height: 28px;
+    }
+
+    .eachCompanyCard {
+      min-width: 180px;
+    }
+
+    .freeAdmissionImgDiv {
+      width: 100%;
+      height: auto;
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .freeAdmissionImgDiv img {
+      height: auto;
+      width: 100%;
+      object-fit: contain;
+    }
   }
 </style>

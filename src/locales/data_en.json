@@ -58,7 +58,9 @@
         "buttonName" : "BE OUR VISITOR",
         "buttonUrl" : "/reservation",
         "jobMatchingImgUrl": "../assets/jobMatching/jobMatching_img.png",
-        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg"
+        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg",
+        "careerTalkSession" : "Career Talk Session",
+        "day" : "Day"
     },
     "headerSection" : {
         "mainPicUrl" : "../assets/introductionSection/main_Pic.png"
@@ -88,6 +90,7 @@
         "dateLabel" : "Exhibition date *",
         "selectAVenueLabel" : "Select a venue",
         "selectADateLabel" : "Select a date",
+        "selectSessionType" : "Select session type",
         "availableSlotsLabel" : "Available Slots *",
         "selectTimeSlot" : "Select time slot",
         "modalLabel" : "Please select a venue first before choosing a date.",

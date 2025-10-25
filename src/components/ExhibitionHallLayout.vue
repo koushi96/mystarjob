@@ -54,7 +54,7 @@ watch(searchText, (newVal) => {
     <div class="titleDiv">
         <h3 class='title'>{{ $t('exhibitionHallLayout.mainTitle') }}</h3>
         <div class="gallery">
-            <img v-for="(img, index) in $tm('imageList')" :key="index" :src="img" alt="Exhibition_Hall_Layout" />
+            <img v-for="(img, index) in imageList" :key="index" :src="img" alt="Exhibition_Hall_Layout" />
         </div>
         <div class="hoverToView"> 
             <img :src="resolveAsset(data.exhibitionHallLayout.magnifyingGlassUrl)" alt='magnifying-glass'/>
@@ -104,8 +104,8 @@ watch(searchText, (newVal) => {
 .title {
     color: black;
     border: none;
-    font-size: 4rem;
-    font-height: 5rem;
+    font-size: 3.5rem;
+    font-height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -246,15 +246,21 @@ watch(searchText, (newVal) => {
     max-height: 350px;
     background: white;
     border: 1px solid #ccc;
-    border-radius: 0 0 8px 8px;
+    border-radius: 8px 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
     z-index: 10;
+    list-style: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
 }
 
 .dropdown-list li {
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 0rem;
     cursor: pointer;
+    text-align: start;
 }
 
 .dropdown-list li:hover {
@@ -264,6 +270,104 @@ watch(searchText, (newVal) => {
 .no-match {
     padding: 0.6rem 1rem;
     color: #888;
+}
+
+@media (max-width: 767px) {
+    .title {
+        font-size:2rem;
+        font-height: 2.5rem;
+    }
+
+    .gallery {
+        flex-direction: column;
+    }
+
+    .gallery img {
+        height: auto;              
+        width: 100%;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.2);
+    }
+
+    .directory {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .directory img{
+        height: auto;              
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .searhDropdown {
+        width: 100%;
+        margin-top: 5rem;
+        
+    }
+
+    .directoryDropdown{
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+
+    .custom-select {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 80%;
+        margin-left: 0rem;
+        margin-top: 1rem;
+    }
+
+
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .gallery img:hover {
+        transform: scale(1.2);
+    }
+
+    .directory {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .directory img{
+        height: auto;              
+        width: 80%;
+        object-fit: contain;
+    }
+
+    .searhDropdown {
+        width: 100%;
+        margin-top: 5rem;
+        
+    }
+
+    .directoryDropdown{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .custom-select {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 80%;
+        margin-left: 0rem;
+        margin-top: 1rem;
+    }
 }
 
 </style>

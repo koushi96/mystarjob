@@ -17,7 +17,7 @@ import Chatbot from '../components/Chatbot.vue';
 
 
 <template>
-  <div>
+  <div id="app">
     <NavMenu />
     <HeaderSection />
     <FairDescription />
@@ -33,3 +33,27 @@ import Chatbot from '../components/Chatbot.vue';
     <Chatbot/>
   </div>
 </template>
+
+<style scoped>
+  #app {
+    max-width: 100vw;
+    margin-right: 5rem;
+    margin-left: 5rem;
+  }
+
+  /* Tablet view (≤1024px) */
+  @media (max-width: 1024px) {
+    #app {
+      margin-right: 2rem;
+      margin-left: 2rem;
+    }
+  }
+
+  /* Mobile view (≤768px) */
+  @media (max-width: 768px) {
+    #app {
+      margin-right: 1rem;
+      margin-left: 1rem;
+    }
+  }
+</style>

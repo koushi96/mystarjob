@@ -3,66 +3,66 @@
   const targetDate = new Date('2025-12-31T23:59:59')
 
   const timeLeft = ref({
-  total: 0,
-  days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0
+    total: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
   })
 
   let timer = null
 
   function updateCountdown() {
-  const now = new Date()
-  const difference = targetDate - now
+    const now = new Date()
+    const difference = targetDate - now
 
-  if (difference <= 0) {
+    if (difference <= 0) {
       clearInterval(timer)
       timeLeft.value = {
-      total: 0,
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0
+        total: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
       }
       return
-  }
+    }
 
-  timeLeft.value = {
+    timeLeft.value = {
       total: difference,
       days: Math.floor(difference / (1000 * 60 * 60 * 24)),
       hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
       minutes: Math.floor((difference / (1000 * 60)) % 60),
       seconds: Math.floor((difference / 1000) % 60)
-  }
+    }
   }
 
   onMounted(() => {
-  updateCountdown() // initialize immediately
-  timer = setInterval(updateCountdown, 1000)
+    updateCountdown() // initialize immediately
+    timer = setInterval(updateCountdown, 1000)
   })
 
   onUnmounted(() => {
-  clearInterval(timer)
+    clearInterval(timer)
   })
 </script>
 
 <template>
   <div class="mainLayout">
-      <div class="titleDiv">
+    <div class="titleDiv">
       <h3 class='title'>{{ $t('liveCountdown.mainTitle') }}</h3>
-      </div>
+    </div>
   </div>
   <div class="countdown">
-      <div v-if="timeLeft.total > 0">
+    <div v-if="timeLeft.total > 0" class="countDownDiv">
       <span>{{ timeLeft.days }}d</span>
       <span>{{ timeLeft.hours }}h</span>
       <span>{{ timeLeft.minutes }}m</span>
       <span>{{ timeLeft.seconds }}s</span>
-      </div>
-      <div v-else>
+    </div>
+    <div v-else>
       <strong>{{ $t('liveCountdown.countdownComplete') }}</strong>
-      </div>
+    </div>
   </div>
 </template>
 
@@ -87,8 +87,8 @@
   .title {
     color: black;
     border: none;
-    font-size: 4rem;
-    font-height: 5rem;
+    font-size: 3.5rem;
+    font-height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,10 +99,17 @@
     font-family: 'Segoe UI', sans-serif;
     font-size: 3.5rem;
     display: flex;
-    gap: 1rem;
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+  }
+
+  .countDownDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .countdown span {
@@ -111,6 +118,31 @@
     color: white;
     border-radius: 6px;
     font-weight: bold;
-    margin-left: 2rem;
+    margin: 0.5rem;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  @media (max-width: 767px) {
+    .title {
+      font-size: 2rem;
+    }
+
+    .titleDiv {
+      width: 100%;
+      height: auto;
+    }
+
+    .countDownDiv {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .countdown span {
+      font-size: 2rem;
+      width: 80%;
+    }
   }
 </style>

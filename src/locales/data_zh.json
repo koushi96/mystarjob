@@ -53,7 +53,9 @@
         "buttonName": "成为我们的访客",
         "buttonUrl": "/reservation",
         "jobMatchingImgUrl": "../assets/jobMatching/jobMatching_img.png",
-        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg"
+        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg",
+        "careerTalkSession" : "职业讲座",
+        "day" : "天"
     },
     "headerSection": {
         "mainPicUrl": "../assets/introductionSection/main_Pic.png"
@@ -83,6 +85,7 @@
         "dateLabel": "展览日期 *",
         "selectAVenueLabel": "选择地点",
         "selectADateLabel": "选择日期",
+        "selectSessionType" : "选择会话类型",
         "availableSlotsLabel": "可用时段 *",
         "selectTimeSlot": "选择时间段",
         "modalLabel": "请先选择地点再选择日期。",

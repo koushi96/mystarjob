@@ -58,10 +58,14 @@
         "buttonName" : "BE OUR VISITOR",
         "buttonUrl" : "/reservation",
         "jobMatchingImgUrl": "../assets/jobMatching/jobMatching_img.png",
-        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg"
+        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg",
+        "careerTalkSession" : "Career Talk Session",
+        "day" : "Day"
     },
     "headerSection" : {
-        "mainPicUrl" : "../assets/introductionSection/main_Pic.png"
+        "mainPicUrl" : "../assets/introductionSection/main_Pic.png",
+        "mobileMainPicWordsUrl" : "../assets/introductionSection/mob_main_Pic_words.png",
+        "mobileMainPicPeopleUrl" : "../assets/introductionSection/mob_main_Pic_people.png"
     },
     "navMenue" : {
         "homeButton" : "HOME",
@@ -88,6 +92,7 @@
         "dateLabel" : "Exhibition date *",
         "selectAVenueLabel" : "Select a venue",
         "selectADateLabel" : "Select a date",
+        "selectSessionType" : "Select session type",
         "availableSlotsLabel" : "Available Slots *",
         "selectTimeSlot" : "Select time slot",
         "modalLabel" : "Please select a venue first before choosing a date.",
@@ -126,6 +131,16 @@
     "liveCountdown" : {
         "mainTitle" : "Next myStarJob Fair in...",
         "countdownComplete" : "See you next year!"
+    },
+    "fairImages" : {
+        "images" : [
+            "../assets/fairPictures/1.jpg",
+            "../assets/fairPictures/2.jpg",
+            "../assets/fairPictures/3.jpg",
+            "../assets/fairPictures/4.jpg",
+            "../assets/fairPictures/5.jpg",
+            "../assets/fairPictures/6.jpg"
+        ]
     }
 
 }

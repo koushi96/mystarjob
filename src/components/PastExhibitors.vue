@@ -23,8 +23,8 @@
 .title {
     color: black;
     border: none;
-    font-size: 4rem;
-    font-height: 5rem;
+    font-size: 3.5rem;
+    font-height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,6 +44,23 @@
     height: 55px;
     width: auto;
     object-fit: contain;
+}
+
+@media (max-width: 767px) {
+    .title {
+        font-size:2rem;
+        font-height: 2.5rem;
+    }
+
+    .gallery {
+        gap: 2rem 1rem; 
+    }
+
+    .gallery img {
+        height: 2.25rem;
+        width: auto;
+        object-fit: contain;
+    }
 }
 
 

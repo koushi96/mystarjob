@@ -47,5 +47,32 @@
     object-fit: contain;
 }
 
+@media (max-width: 767px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .leftSide {
+        width: 100%;
+        height: auto;
+    }
+
+    .leftSide img {
+        width: 90%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .rightSide {
+        width: 100%;
+        height: auto;
+    }
+
+    .rightSide img {
+        width: 90%;
+        height: auto;
+        object-fit: contain;
+    }
+}
 
 </style>

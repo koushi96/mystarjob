@@ -58,7 +58,9 @@
         "buttonName": "எங்கள் பார்வையாளராக இருங்கள்",
         "buttonUrl": "/reservation",
         "jobMatchingImgUrl": "../assets/jobMatching/jobMatching_img.png",
-        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg"
+        "freeAdmissionGiftUrl": "../assets/jobMatching/freeAdmissionGift.jpg",
+        "careerTalkSession" : "தொழில் உரை அமர்வு",
+        "day" : "நாள்"
     },
     "headerSection": {
         "mainPicUrl": "../assets/introductionSection/main_Pic.png"
@@ -88,6 +90,7 @@
         "dateLabel": "கண்காட்சி தேதி *",
         "selectAVenueLabel": "ஒரு இடத்தைத் தேர்ந்தெடுக்கவும்",
         "selectADateLabel": "ஒரு தேதியைத் தேர்ந்தெடுக்கவும்",
+        "selectSessionType" : "அமர்வு வகையைத் தேர்ந்தெடுக்கவும்",
         "availableSlotsLabel": "கண்காட்சி நேரம் *",
         "selectTimeSlot": "நேரத்தைத் தேர்ந்தெடுக்கவும்",
         "modalLabel": "தயவுசெய்து முதலில் இடத்தைத் தேர்ந்தெடுத்து பின்னர் தேதியைத் தேர்ந்தெடுக்கவும்.",
