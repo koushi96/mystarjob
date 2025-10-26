@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted, computed  } from 'vue';
   import ComponentButton from './ComponentButton.vue';
   import data from '../common/data.json';
   import { resolveAsset } from '../common/commonFunctions.ts'
@@ -19,12 +19,16 @@
     try {
       const res = await fetch("http://localhost/backend/api/getSessions.php");
       const data = await res.json();
-      console.log("  API response:", data);
+      console.log("API response:", data);
+      
+      const venuSessions = computed(() =>
+        (data || []).filter(item => item.venue === 'Pulau Pinang')
+      )
 
-      const jobMatching = data.filter(
+      const jobMatching = venuSessions.value.filter(
         (s) => s.session_type_id === "1" || s.session_type_id === 1
       );
-      const careerTalk = data.filter(
+      const careerTalk = venuSessions.value.filter(
         (s) => s.session_type_id === "2" || s.session_type_id === 2
       );
 
