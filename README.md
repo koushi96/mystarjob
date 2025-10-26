@@ -28,6 +28,8 @@ A myStarJob fair web application built using Node.js, MySQL, and Apache to manag
 6.  Start the Application
     npm run dev
 
+7. To play the game, use this path -> /game
+
 
 ------Requirements------
 Node.js (v18) or above
